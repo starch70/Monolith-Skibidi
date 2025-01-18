@@ -1,6 +1,6 @@
 # scaf tacsuit
 - type: entity
-  id: SuitStorageBlueshield
+  id: SuitStorageScaf
   parent: SuitStorageBase
   suffix: M92/Scaf, L2 Access
   components:
