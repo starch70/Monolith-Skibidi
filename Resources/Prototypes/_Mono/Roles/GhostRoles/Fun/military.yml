@@ -4,7 +4,7 @@
   description: job-description-military
   playTimeTracker: JobMilitary
   setPreference: false
-  startingGear: Military
+  startingGear: MilitaryGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-unmc
   canBeAntag: false
