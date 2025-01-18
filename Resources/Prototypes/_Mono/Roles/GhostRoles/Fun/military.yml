@@ -1,5 +1,5 @@
 - type: job
-  id: MercL1
+  id: UNMCRifleman
   name: job-name-unmc
   description: job-description-military
   playTimeTracker: JobMilitary
