@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingHeadsetAlt
-  id: ClohtingHeadsetUNMCHeadsetAlt
+  id: ClothingHeadsetUNMCHeadsetAlt
   name: UNMC Headset
   components:
   - type: ContainerFill
