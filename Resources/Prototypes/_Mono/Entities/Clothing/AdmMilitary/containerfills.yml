@@ -6,7 +6,7 @@
   - type: StorageFill
     contents:
       - id: WeaponRifleLecter
-      - id: EncryptionKeyMilitary
+      - id: Emag
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing
