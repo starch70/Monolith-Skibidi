@@ -20,7 +20,7 @@
     back: ClothingBackpackERTLeaderFilledMLTR
     mask: ClothingMaskGasSecurity
     eyes: ClothingEyesHudMedSec
-    ears: ClohtingHeadsetUNMCHeadsetAlt
+    ears: ClothingHeadsetUNMCHeadsetAlt
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitScaf
     suitstorage: OxygenTankFilled
