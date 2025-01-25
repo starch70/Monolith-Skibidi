@@ -1,4 +1,4 @@
-﻿using Content.Shared.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Roles;
 using Content.Shared.Storage;
 using Robust.Shared.Network;
@@ -41,5 +41,5 @@ public sealed partial class DeathMatchRuleComponent : Component
     /// The gear all players spawn with.
     /// </summary>
     [DataField("gear", customTypeSerializer: typeof(PrototypeIdSerializer<StartingGearPrototype>)), ViewVariables(VVAccess.ReadWrite)]
-    public string Gear = "DeathMatchGear";
+    public string Gear = "MilitaryGear"; /// monolith changes
 }
