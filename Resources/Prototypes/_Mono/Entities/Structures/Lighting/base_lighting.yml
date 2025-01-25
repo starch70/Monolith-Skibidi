@@ -1,0 +1,99 @@
+# ~<4500k lights - DOES NOT HAVE TO BE ON COLOR TEMP SCALE JUST HAS TO LOOK LIKE IT - USE SODIUM/NORMAL LIGHT TUBES FOR THESE
+- type: entity
+  id: PoweredlightTungsten40w
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  suffix: 40w Tungsten
+  parent: Poweredlight
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: LightTube
+  - type: PointLight
+    radius: 10
+    energy: 2.5
+    softness: 0.9
+    color: "#ffc58f"
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: PoweredlightTungsten100w
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  suffix: 100w Tungsten
+  parent: Poweredlight
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: LightTube
+  - type: PointLight
+    radius: 10
+    energy: 2.5
+    softness: 0.9
+    color: "#ffd6aa"
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: PoweredlightSodiumVapor
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  suffix: Sodium Vapor
+  parent: Poweredlight
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: SodiumLightTube
+  - type: PointLight
+    radius: 10
+    energy: 2.5
+    softness: 0.9
+    color: "#ffd1b2"
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+# ~>4500k lights - DOES NOT HAVE TO BE ON COLOR TEMP SCALE JUST HAS TO LOOK LIKE IT - USE LED LIGHT TUBES FOR THESE
+
+- type: entity
+  id: PoweredlightOvercast
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  suffix: 201/226/255 c9e2ff
+  parent: Poweredlight
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: LedLightTube
+  - type: PointLight
+    radius: 10
+    energy: 2.5
+    softness: 0.9
+    color: "#c9e2ff"
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: PoweredlightCoolFluorescent
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  suffix: Cool Fluorescent
+  parent: Poweredlight
+  components:
+  - type: PoweredLight
+    hasLampOnSpawn: LedLightTube
+  - type: PointLight
+    radius: 10
+    energy: 2.5
+    softness: 0.9
+    color: "#d4ebff"
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+# misc - (colored lights, etc)
