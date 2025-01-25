@@ -27,3 +27,15 @@ Entries:
       message: Merged upstream Goob.
   id: 4
   time: '2025-01-23T18:58:23.0000000+00:00'
+- author: starch
+  changes:
+    - type: Add
+      message: Dedicated small ERT shuttle, as the Dart is too large for lowpop.
+    - type: Add
+      message: >-
+        New lighting for admin-only shuttles, may be added to naturally spawning
+        shuttles too (cargo, salv, evac).
+    - type: Fix
+      message: Fixed minor bugs with pre-existing admin-only shuttles.
+  id: 5
+  time: '2025-01-25T22:49:30.0000000+00:00'
