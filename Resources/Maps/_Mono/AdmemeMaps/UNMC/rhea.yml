@@ -1252,6 +1252,16 @@ entities:
     - type: IFF
       flags: HideLabel
     - type: RadiationGridResistance
+    - type: Joint
+      joints:
+        docking85239: !type:WeldJoint
+          bodyB: 2479
+          bodyA: 2
+          id: docking85239
+          localAnchorB: 0.49999997,0
+          localAnchorA: 0.5,4
+          damping: 346.96848
+          stiffness: 3114.3816
   - uid: 2479
     components:
     - type: MetaData
@@ -1374,6 +1384,16 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: Joint
+      joints:
+        docking85239: !type:WeldJoint
+          bodyB: 2479
+          bodyA: 2
+          id: docking85239
+          localAnchorB: 0.49999997,0
+          localAnchorA: 0.5,4
+          damping: 346.96848
+          stiffness: 3114.3816
 - proto: AirAlarm
   entities:
   - uid: 3
@@ -1803,11 +1823,29 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,3.5
       parent: 2
+    - type: Docking
+      dockJointId: docking85239
+      dockedWith: 2482
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: False
+        DockStatus: True
+    - type: Door
+      changeAirtight: False
   - uid: 2482
     components:
     - type: Transform
       pos: 0.5,0.5
       parent: 2479
+    - type: Docking
+      dockJointId: docking85239
+      dockedWith: 50
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: False
+        DockStatus: True
+    - type: Door
+      changeAirtight: False
 - proto: AirSensor
   entities:
   - uid: 51
@@ -6678,11 +6716,15 @@ entities:
     - type: Transform
       pos: 3.5,-52.5
       parent: 2
+    missingComponents:
+    - AccessReader
   - uid: 923
     components:
     - type: Transform
       pos: -2.5,-52.5
       parent: 2
+    missingComponents:
+    - AccessReader
 - proto: CrateEngineeringCableBulk
   entities:
   - uid: 924
@@ -10605,6 +10647,8 @@ entities:
     - type: Transform
       pos: 6.5,-33.5
       parent: 2
+    missingComponents:
+    - AccessReader
 - proto: LiquidOxygenCanister
   entities:
   - uid: 1430
@@ -10612,6 +10656,8 @@ entities:
     - type: Transform
       pos: 6.5,-34.5
       parent: 2
+    missingComponents:
+    - AccessReader
 - proto: LockerChemistryFilled
   entities:
   - uid: 1431
@@ -12145,6 +12191,8 @@ entities:
     - type: Transform
       pos: -9.5,-46.5
       parent: 2
+    missingComponents:
+    - AccessReader
 - proto: VendingMachineChemicals
   entities:
   - uid: 1639
@@ -12161,6 +12209,8 @@ entities:
     - type: Transform
       pos: -8.5,-46.5
       parent: 2
+    missingComponents:
+    - AccessReader
 - proto: VendingMachineEngivend
   entities:
   - uid: 1641
