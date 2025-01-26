@@ -1,7 +1,7 @@
 Name: Monolith
 Order: -1
 Entries:
-- author: ark1368
+- author: Ark
   changes:
     - type: Remove
       message: LRP
@@ -9,19 +9,19 @@ Entries:
       message: Einstein Engines
   id: 1
   time: '2025-01-20T23:43:06.892Z'
-- author: ark1368
+- author: Ark
   changes:
     - type: Fix
       message: Fixed admin changelog order.
   id: 2
   time: '2025-01-21T02:45:05.0000000+00:00'
-- author: ark1368
+- author: Ark
   changes:
     - type: Remove
       message: Removed fart emote to enhance MRP.
   id: 3
   time: '2025-01-21T20:57:38.0000000+00:00'
-- author: ark1368
+- author: Ark
   changes:
     - type: Add
       message: Merged upstream Goob.
