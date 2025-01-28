@@ -158,6 +158,7 @@
   - type: Access
     groups:
     - AllAccess
+    - MercAA # mono
     tags:
     - CentralCommand
     - NuclearOperative
