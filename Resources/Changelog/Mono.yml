@@ -53,3 +53,9 @@ Entries:
       message: Fixed round respawns.
   id: 7
   time: '2025-01-29T01:48:42.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Added new logo and icon to differentiate from Goob.
+  id: 8
+  time: '2025-01-29T21:16:37.0000000+00:00'
