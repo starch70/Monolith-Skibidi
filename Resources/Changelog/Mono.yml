@@ -45,3 +45,11 @@ Entries:
       message: Added respawn after death!
   id: 6
   time: '2025-01-26T08:34:31.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Added auto vote to lobby for quality of life!
+    - type: Fix
+      message: Fixed round respawns.
+  id: 7
+  time: '2025-01-29T01:48:42.0000000+00:00'
