@@ -1,0 +1,68 @@
+- type: entity
+  parent: BaseFlatpack
+  id: FlatpackAutolathe
+  name: autolathe flatpack
+  description: A flatpack used for constructing a autolathe.
+  components:
+  - type: Flatpack
+    entity: Autolathe
+  - type: StaticPrice
+    price: 75
+
+- type: entity
+  parent: BaseFlatpack
+  id: FlatpackProtolathe
+  name: protolathe flatpack
+  description: A flatpack used for constructing a protolathe.
+  components:
+  - type: Flatpack
+    entity: Protolathe
+  - type: StaticPrice
+    price: 75
+
+- type: entity
+  parent: BaseFlatpack
+  id: FlatpackCircuitImprinter
+  name: circuit imprinter flatpack
+  description: A flatpack used for constructing a circuit imprinter.
+  components:
+  - type: Flatpack
+    entity: CircuitImprinter
+  - type: StaticPrice
+    price: 75
+
+- type: entity
+  parent: BaseFlatpack
+  id: FlatpackRDComputer
+  name: research computer flatpack
+  description: A flatpack used for constructing a R&D computer.
+  components:
+  - type: Flatpack
+    entity: ComputerResearchAndDevelopment
+  - type: StaticPrice
+    price: 75
+
+- type: entity
+  parent: BaseFlatpack
+  id: FlatpackRDServer
+  name: research server flatpack
+  description: A flatpack used for constructing a R&D server.
+  components:
+  - type: Flatpack
+    entity: ResearchAndDevelopmentServer
+  - type: StaticPrice
+    price: 75
+
+- type: entity
+  parent: BaseFlatpack
+  id: FlatpackRDGenerator
+  name: research point generator flatpack
+  description: A flatpack used for constructing a research point generator.
+  components:
+  - type: Flatpack
+    entity: ResearchAndDevelopmentPointSource
+  - type: StaticPrice
+    price: 75
+
+
+

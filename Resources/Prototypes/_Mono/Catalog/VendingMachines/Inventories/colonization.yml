@@ -1,0 +1,48 @@
+- type: vendingMachineInventory
+  id: ColonizationInventory
+  startingInventory:
+    MedkitFilled: 50
+    NitrogenTankFilled: 4294967295 # inf
+    OxygenTankFilled: 4294967295 # inf
+    CableHVStack: 10
+    CableMVStack: 10
+    CableApcStack: 15
+    APCElectronics: 3
+    SubstationMachineCircuitboard: 1
+    WallmountSubstationElectronics: 2
+    WallmountGeneratorAPUElectronics: 4
+    ClothingModsuitStandardPowerCell: 4294967295 # inf
+    ClothingBeltUtilityEngineering: 4294967295 # inf
+    ClothingEyesGlassesMeson: 4294967295 # inf
+    ClothingHandsGlovesColorYellow: 4294967295 # inf
+    PowerCellMicroreactor: 5
+    # atmos/engi stuff - dedicated
+    RCDRecharging: 3
+    RPD: 3
+    RCDAmmo: 4294967295 # inf
+    ClothingOuterHardsuitAtmos: 1
+    ClothingOuterHardsuitEngineering: 2
+    ClothingShoesBootsMag: 3
+    ClothingBeltChiefEngineerFilled: 3
+    # salv gear
+    ClothingOuterHardsuitSpatio: 4294967295 # inf
+    HandHeldMassScannerBorg: 4294967295 # inf
+    JetpackMiniFilled: 4294967295 # inf
+    OreBag: 4294967295 # inf
+    ClothingBeltSalvageWebbing: 4294967295 # inf
+    Pickaxe: 4294967295 # inf
+    WeaponProtoKineticAccelerator: 4294967295 # inf
+    # mats
+    SheetSteel: 10
+    SheetGlass: 5
+    SheetPlastic: 5
+    SheetPlasma: 2
+    # flatpacks
+    FlatpackAutolathe: 2
+    FlatpackProtolathe: 1
+    FlatpackCircuitImprinter: 1
+    FlatpackRDServer: 1
+    FlatpackRDComputer: 1
+    FlatpackRDGenerator: 1
+  contrabandInventory:
+    ClothingHandsGlovesCombat: 5

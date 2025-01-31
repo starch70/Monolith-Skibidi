@@ -1,0 +1,35 @@
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineColonization
+  name: Automated Colonization Supply Machine
+  description: "A vending machine containing standard tools. needed for colonization of space or ground."
+  components:
+  - type: VendingMachine
+    pack: ColonizationInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+  - type: Sprite
+    noRot: true
+    sprite: Structures/Machines/VendingMachines/youtool.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 2
+    energy: 1.6
+    color: "#d4ab33"
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+    rotateWhileAnchored: false
+    rotateWhilePulling: true
