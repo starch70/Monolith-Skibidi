@@ -1,0 +1,43 @@
+- type: utilityQuery
+  id: NearbyInorganicTargets
+  query:
+    - !type:NearbyHostilesQuery
+  considerations:
+    - !type:TargetDistanceCon
+      curve: !type:PresetCurve
+        preset: TargetDistance
+    - !type:TargetAccessibleCon
+      curve: !type:BoolCurve
+    - !type:TargetInLOSOrCurrentCon
+      curve: !type:BoolCurve
+
+- type: htnCompound
+  id: TurretCompoundPD
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: NearbyInorganicTargets
+        
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: Target
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: RangedRangeLR
+            - !type:TargetInLOSPrecondition
+              targetKey: Target
+              rangeKey: RangedRangeLR
+          operator: !type:GunOperator
+            targetKey: Target
+            requireLOS: true
+          services:
+            - !type:UtilityService
+              id: RangedService
+              proto: NearbyInorganicTargets
+              key: Target
+
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleSpinCompound

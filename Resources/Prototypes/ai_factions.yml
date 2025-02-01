@@ -9,6 +9,7 @@
     - Revolutionary
     - Heretic # goob edit - heretics
     - Blob # Goobstation - Blob
+    - PDTarget # mono
 
 - type: npcFaction
   id: NanoTrasen
@@ -21,11 +22,13 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - PDTarget # mono
 
 - type: npcFaction
   id: Mouse
   hostile:
     - PetsNT
+    - PDTarget # mono
 
 - type: npcFaction
   id: Passive
@@ -38,6 +41,7 @@
   - Zombie
   - Xeno
   - Blob # Goobstation - Blob
+  - PDTarget # mono
 
 - type: npcFaction
   id: SimpleHostile
@@ -50,6 +54,7 @@
   - Revolutionary
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - PDTarget # mono
 
 - type: npcFaction
   id: SimpleNeutral
@@ -65,6 +70,7 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - PDTarget # mono
 
 - type: npcFaction
   id: Xeno
@@ -77,6 +83,7 @@
   - Revolutionary
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - PDTarget # mono
 
 - type: npcFaction
   id: Zombie
@@ -91,6 +98,7 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - PDTarget # mono
 
 - type: npcFaction
   id: Revolutionary
@@ -100,3 +108,4 @@
   - SimpleHostile
   - Dragon
   - Blob # Goobstation - Blob
+  - PDTarget # mono

@@ -1,0 +1,109 @@
+- type: entity
+  parent: BaseStructure
+  id: BaseWeaponTurretPD
+  name: point defense turret
+  abstract: true
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Actions
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.45,-0.45,0.45,0.45"
+          density: 60
+          mask:
+            - MachineMask
+          layer:
+            - MachineLayer
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+      drawdepth: Mobs
+      layers:
+        - state: syndie_lethal
+    - type: InteractionPopup
+      interactDelay: 0.2
+      successChance: 0.8
+      interactSuccessString: petting-success-generic
+      interactFailureString: petting-failure-generic
+      interactSuccessSound:
+        path: /Audio/Effects/double_beep.ogg
+    - type: CombatMode
+      toggleMouseRotator: false
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 900
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 600
+          # TODO: Construction graph
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalGlassBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel1:
+                  min: 9
+                  max: 15
+    - type: Gun
+      minAngle: 2
+      maxAngle: 4
+      angleIncrease: 2
+      angleDecay: 8
+      fireRate: 16
+      selectedMode: FullAuto
+      availableModes:
+        - FullAuto
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/m41.ogg
+      soundEmpty:
+        path: /Audio/Weapons/Guns/EmptyAlarm/lmg_empty_alarm.ogg
+    - type: HTN
+      rootTask:
+        task: TurretCompoundPD
+      blackboard:
+        RotateSpeed: !type:Single
+          6.282
+        SoundTargetInLOS: !type:SoundPathSpecifier
+          path: /Audio/_Mono/Weapons/Misc/pdtarget.ogg
+    - type: MouseRotator
+      angleTolerance: 5
+      rotationSpeed: 360
+      simple4DirMode: false
+    - type: NoRotateOnInteract
+    - type: NoRotateOnMove
+    - type: ContainerContainer
+      containers:
+        ballistic-ammo: !type:Container
+    - type: ProjectileBatteryAmmoProvider
+      proto: CartridgeCaselessRifle
+      fireCost: 100
+    - type: Battery
+      maxCharge: 100000
+      startingCharge: 100000
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 100
+
+- type: entity
+  parent: BaseWeaponTurretPD
+  id: WeaponTurretPDK30
+  name: K-30 point defense turret
+  description: A basic .25 caseless PD turret. Produces ammo from internal ammo fabricators, automatically targets meteors. Low-range though.
+  suffix: PointDefence
+  components:
+  - type: NpcFactionMember
+    factions:
+    - PointDefence

@@ -1,4 +1,4 @@
-﻿using Content.Server.StationEvents.Events;
+using Content.Server.StationEvents.Events;
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -18,7 +18,7 @@ public sealed partial class MeteorSwarmComponent : Component
     public int WaveCounter;
 
     [DataField]
-    public float MeteorVelocity = 10f;
+    public float MeteorVelocity = 3f;
 
     /// <summary>
     /// If true, meteors will be thrown from all angles instead of from a singular source
