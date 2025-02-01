@@ -1,0 +1,9 @@
+- type: npcFaction
+  id: PointDefence
+  hostile:
+    - PDTarget
+
+- type: npcFaction
+  id: PDTarget
+  hostile:
+    - PointDefence

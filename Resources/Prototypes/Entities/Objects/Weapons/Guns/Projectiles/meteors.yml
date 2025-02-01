@@ -34,7 +34,7 @@
         - LargeMobLayer
         mask:
         - Impassable
-        - BulletImpassable
+     #  - BulletImpassable - mono
   - type: Damageable
     damageContainer: Inorganic
   - type: Explosive
@@ -43,6 +43,9 @@
     maxIntensity: 100
     maxTileBreak: 1
     tileBreakScale: 2
+  - type: NpcFactionMember # mono
+    factions:
+    - PDTarget
 
 
 - type: entity
@@ -65,7 +68,7 @@
         - LargeMobLayer
         mask:
         - Impassable
-        - BulletImpassable
+      # - BulletImpassable - mono
   - type: Explosive
     totalIntensity: 25
   - type: Destructible
@@ -100,7 +103,7 @@
         - LargeMobLayer
         mask:
         - Impassable
-        - BulletImpassable
+     #  - BulletImpassable - mono
   - type: Explosive
     totalIntensity: 50
   - type: Destructible
@@ -120,6 +123,9 @@
         minSpawn: 2
         maxSpawn: 4
         spawnAfter: 0.5
+  - type: NpcFactionMember # mono
+    factions:
+    - PDTarget
 
 - type: entity
   parent: BaseMeteor
@@ -140,7 +146,7 @@
         - LargeMobLayer
         mask:
         - Impassable
-        - BulletImpassable
+     #  - BulletImpassable - mono
   - type: Explosive
     totalIntensity: 100
   - type: Destructible
@@ -161,6 +167,9 @@
         minSpawn: 3
         maxSpawn: 6
         spawnAfter: 0.5
+  - type: NpcFactionMember # mono
+    factions:
+    - PDTarget
 
 - type: entity
   parent: BaseMeteor
@@ -189,6 +198,9 @@
         minSpawn: 5
         maxSpawn: 8
         spawnAfter: 0.5
+  - type: NpcFactionMember # mono
+    factions:
+    - PDTarget
 
 - type: entity
   parent: BaseMeteor
@@ -224,3 +236,6 @@
       - !type:SpillBehavior
         solution: blood
       - !type:ExplodeBehavior
+  - type: NpcFactionMember # mono
+    factions:
+    - PDTarget
