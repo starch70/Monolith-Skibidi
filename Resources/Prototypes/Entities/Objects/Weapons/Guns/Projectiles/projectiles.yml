@@ -658,6 +658,19 @@
     radius: 3.5
     color: orange
     energy: 0.5
+  - type: NpcFactionMember # mono
+    factions:
+    - PDTarget
+  - type: Destructible # mono
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   id: BulletWeakRocket
@@ -680,6 +693,19 @@
     radius: 3.5
     color: orange
     energy: 0.5
+  - type: NpcFactionMember # mono
+    factions:
+    - PDTarget
+  - type: Destructible # mono
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   id: BulletGrenadeBaton
@@ -717,6 +743,19 @@
     totalIntensity: 150 # a ~2 tile radius
     intensitySlope: 5
     maxIntensity: 10
+  - type: NpcFactionMember # mono
+    factions:
+    - PDTarget
+  - type: Destructible # mono
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   id: BulletGrenadeFlash
@@ -735,6 +774,19 @@
   - type: ActiveTimerTrigger
     timeRemaining: 0.3
   - type: DeleteOnTrigger
+  - type: NpcFactionMember # mono
+    factions:
+    - PDTarget
+  - type: Destructible # mono
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 # This is supposed to spawn shrapnel and stuff so uhh... TODO?
 - type: entity
@@ -753,6 +805,19 @@
     totalIntensity: 175 # about a ~6 tile radius
     intensitySlope: 1
     maxIntensity: 10
+  - type: NpcFactionMember # mono
+    factions:
+    - PDTarget
+  - type: Destructible # mono
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   id: BulletGrenadeEMP
@@ -774,6 +839,19 @@
     radius: 3.5
     color: blue
     energy: 0.5
+  - type: NpcFactionMember # mono
+    factions:
+    - PDTarget
+  - type: Destructible # mono
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   id: BulletCap

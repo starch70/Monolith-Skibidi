@@ -59,3 +59,17 @@ Entries:
       message: Added new logo and icon to differentiate from Goob.
   id: 8
   time: '2025-01-29T21:16:37.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        Meteor point defence turrets have been added. Currently not mapped
+        anywhere.
+  id: 9
+  time: '2025-02-01T03:19:41.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Fix
+      message: PD properly targets small meteors now
+  id: 10
+  time: '2025-02-01T08:52:58.0000000+00:00'

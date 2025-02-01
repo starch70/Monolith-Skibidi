@@ -14,6 +14,7 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
 {
     /// <summary>
     /// Global defaults for NPCs
+    /// RangedRangeLR is from Monolith for PD turrets
     /// </summary>
     private static readonly Dictionary<string, object> BlackboardDefaults = new()
     {
@@ -30,6 +31,7 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
         {"MovementRangeClose", 0.2f},
         {"MovementRange", 1.5f},
         {"RangedRange", 10f},
+        {"RangedRangeLR", 20f},
         {"RotateSpeed", float.MaxValue},
         {"VisionRadius", 10f},
         {"AggroVisionRadius", 10f},
