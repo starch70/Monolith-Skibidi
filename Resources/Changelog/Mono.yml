@@ -67,3 +67,9 @@ Entries:
         anywhere.
   id: 9
   time: '2025-02-01T03:19:41.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Fix
+      message: PD properly targets small meteors now
+  id: 10
+  time: '2025-02-01T08:52:58.0000000+00:00'
