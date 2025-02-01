@@ -116,6 +116,7 @@
         damage: 300
       behaviors:
       - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
