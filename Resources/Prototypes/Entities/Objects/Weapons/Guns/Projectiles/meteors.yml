@@ -83,6 +83,9 @@
         sound:
           collection: MetalBreak
       - !type:ExplodeBehavior
+  - type: NpcFactionMember # mono
+    factions:
+    - PDTarget
 
 - type: entity
   parent: BaseMeteor
@@ -113,6 +116,7 @@
         damage: 300
       behaviors:
       - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
