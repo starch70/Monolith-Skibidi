@@ -81,3 +81,9 @@ Entries:
       message: PD turret flatpacks, still unobtainable outside of spawning.
   id: 11
   time: '2025-02-02T03:19:36.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: UNMC is now TSFMC
+  id: 12
+  time: '2025-02-02T07:07:52.0000000+00:00'
