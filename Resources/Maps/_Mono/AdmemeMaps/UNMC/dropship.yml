@@ -450,8 +450,6 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: BoxMagazineRifle
-  entities:
   - uid: 26
     components:
     - type: Transform
