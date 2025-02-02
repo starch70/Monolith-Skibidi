@@ -29,7 +29,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: UNMC Tethys-Class Support Ship
+      name: TSFMC Tethys-Class Support Ship
     - type: Transform
       pos: -0.47222137,-0.47222266
       parent: 1
@@ -3926,5 +3926,5 @@ entities:
       pos: 0.5,-1.5
       parent: 2
     - type: WarpPoint
-      location: UNMC Tethys-Class Support Ship
+      location: TSFMC Tethys-Class Support Ship
 ...

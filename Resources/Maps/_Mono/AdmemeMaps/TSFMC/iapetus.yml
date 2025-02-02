@@ -39,7 +39,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: UNMC Iapetus DD-78
+      name: TSFMC Iapetus DD-78
     - type: Transform
       pos: -0.47222137,-0.47222266
       parent: 1
@@ -6674,7 +6674,7 @@ entities:
       pos: 0.5,-7.5
       parent: 2
     - type: FaxMachine
-      name: UNMC Iapetus DD-78
+      name: TSFMC Iapetus DD-78
 - proto: FireAlarm
   entities:
   - uid: 954
@@ -16729,7 +16729,7 @@ entities:
       pos: 0.5,-42.5
       parent: 2
     - type: WarpPoint
-      location: UNMC Iapetus DD-78
+      location: TSFMC Iapetus DD-78
 - proto: WeaponRifleLecter
   entities:
   - uid: 175

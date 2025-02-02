@@ -1,16 +1,16 @@
 - type: entity
   id: RandomHumanoidMilitarySpawner
-  name: UNMC Rifleman
+  name: TSFMC Rifleman
   suffix: Admeme, L2 Access
   components:
     - type: Sprite
       sprite: Mobs/Species/Human/parts.rsi
       state: full
     - type: RandomHumanoidSpawner
-      settings: UNMCRifleman
+      settings: TSFMCRifleman
 
 - type: randomHumanoidSettings
-  id: UNMCRifleman
+  id: TSFMCRifleman
   parent: EventHumanoid
   components:
     - type: GhostRole
