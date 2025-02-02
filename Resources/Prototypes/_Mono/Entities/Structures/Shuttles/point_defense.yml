@@ -1,3 +1,6 @@
+# If you want a entity to be targeted by PD, add the PDTarget faction to it.
+# Any faction will target PDTarget, but these turrets are here to act as neutral ones that do not target any other faction (to not expose antag status as NT turrets will shoot anyone part of the Syndicate faction.)
+
 - type: entity
   parent: BaseStructure
   id: BaseWeaponTurretPD
@@ -107,3 +110,14 @@
   - type: NpcFactionMember
     factions:
     - PointDefence
+
+- type: entity
+  parent: BaseFlatpack
+  id: PDTurretFlatpack
+  name: K-30 PD turret flatpack
+  description: A flatpack used for constructing a K-30 point defence turret. Requires no external connections to function.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretPDK30
+  - type: StaticPrice
+    price: 250
