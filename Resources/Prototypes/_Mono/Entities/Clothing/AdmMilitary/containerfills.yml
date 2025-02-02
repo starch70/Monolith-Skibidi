@@ -5,7 +5,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: WeaponRifleLecter
+      - id: WeaponSubMachineGunMlA53
       - id: Emag
 
 - type: entity
@@ -15,10 +15,10 @@
   components:
   - type: StorageFill
     contents:
-      - id: MagazineRifle
-      - id: MagazineRifle
-      - id: MagazineRifle
-      - id: MagazineBoxRifleBig
+      - id: MagazinePistolSubMachineGun
+      - id: MagazinePistolSubMachineGun
+      - id: MagazinePistolSubMachineGun
+      - id: MagazineBoxPistol
       - id: MedkitCombatFilled
       - id: ExGrenade
       - id: ExGrenade
