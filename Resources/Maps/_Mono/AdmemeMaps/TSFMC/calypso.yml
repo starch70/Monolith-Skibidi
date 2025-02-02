@@ -33,7 +33,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: UNMC Calypso FF-378 Command Ship
+      name: TSFMC Calypso FF-378 Command Ship
     - type: Transform
       pos: -0.47222137,-0.47222266
       parent: 1
@@ -2456,7 +2456,7 @@ entities:
       pos: 2.5,6.5
       parent: 2
     - type: FaxMachine
-      name: UNMC Calypso FF-378 Command Ship
+      name: TSFMC Calypso FF-378 Command Ship
 - proto: FireAlarm
   entities:
   - uid: 354
@@ -5762,7 +5762,7 @@ entities:
       pos: 0.5,-6.5
       parent: 2
     - type: WarpPoint
-      location: UNMC Calypso FF-378 Command Ship
+      location: TSFMC Calypso FF-378 Command Ship
 - proto: WindowReinforcedDirectional
   entities:
   - uid: 862

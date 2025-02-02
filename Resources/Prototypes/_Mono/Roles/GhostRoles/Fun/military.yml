@@ -1,12 +1,12 @@
 - type: job
-  id: UNMCRifleman
-  name: job-name-unmc
+  id: TSFMCRifleman
+  name: job-name-TSFMC
   description: job-description-military
   playTimeTracker: JobMilitary
   setPreference: false
   startingGear: MilitaryGear
   icon: "JobIconPassenger"
-  supervisors: job-supervisors-unmc
+  supervisors: job-supervisors-TSFMC
   canBeAntag: false
   access:
   - MercL1
@@ -20,7 +20,7 @@
     back: ClothingBackpackERTLeaderFilledMLTR
     mask: ClothingMaskGasSecurity
     eyes: ClothingEyesHudMedSec
-    ears: ClothingHeadsetUNMCHeadsetAlt
+    ears: ClothingHeadsetTSFMCHeadsetAlt
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitScaf
     suitstorage: OxygenTankFilled
