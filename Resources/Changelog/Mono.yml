@@ -73,3 +73,11 @@ Entries:
       message: PD properly targets small meteors now
   id: 10
   time: '2025-02-01T08:52:58.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: MlA-53 SMG for UNMC to replace lecter.
+    - type: Add
+      message: PD turret flatpacks, still unobtainable outside of spawning.
+  id: 11
+  time: '2025-02-02T03:19:36.0000000+00:00'
