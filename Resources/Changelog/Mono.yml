@@ -87,3 +87,9 @@ Entries:
       message: UNMC is now TSFMC
   id: 12
   time: '2025-02-02T07:07:52.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Tweak
+      message: Bullets now break lights. Taken from Wizden.
+  id: 13
+  time: '2025-02-02T10:49:24.0000000+00:00'
