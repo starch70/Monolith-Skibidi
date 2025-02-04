@@ -93,3 +93,9 @@ Entries:
       message: Bullets now break lights. Taken from Wizden.
   id: 13
   time: '2025-02-02T10:49:24.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Added the Chitinid species. Ported from Delta-V.
+  id: 14
+  time: '2025-02-04T18:10:04.0000000+00:00'
