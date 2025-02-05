@@ -81,3 +81,21 @@ Entries:
       message: PD turret flatpacks, still unobtainable outside of spawning.
   id: 11
   time: '2025-02-02T03:19:36.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: UNMC is now TSFMC
+  id: 12
+  time: '2025-02-02T07:07:52.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Tweak
+      message: Bullets now break lights. Taken from Wizden.
+  id: 13
+  time: '2025-02-02T10:49:24.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Added the Chitinid species. Ported from Delta-V.
+  id: 14
+  time: '2025-02-04T18:10:04.0000000+00:00'
