@@ -7,6 +7,6 @@ ghost-role-information-military-description = A peacekeeper, or soldier, of the 
 # job shit
 
 job-name-TSFMC = TSFMC Rifleman
-job-description-TSFMC = A rifleman of the United Nations Military Command, deployed for either enforcement of the TSFMC's orders or for peacekeeping.
+job-description-TSFMC = A rifleman of the Trans Solar Federation Marine Corps deployed for either enforcement of the TSFMC's orders or for peacekeeping.
 
 job-supervisors-TSFMC = the TSFMC high command
