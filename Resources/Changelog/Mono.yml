@@ -99,3 +99,9 @@ Entries:
       message: Added the Chitinid species. Ported from Delta-V.
   id: 14
   time: '2025-02-04T18:10:04.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Ported over presets from Goob MRP.
+  id: 15
+  time: '2025-02-05T17:27:04.0000000+00:00'
