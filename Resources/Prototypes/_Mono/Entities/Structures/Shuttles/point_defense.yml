@@ -65,7 +65,7 @@
       maxAngle: 4
       angleIncrease: 2
       angleDecay: 8
-      fireRate: 16
+      fireRate: 20
       selectedMode: FullAuto
       availableModes:
         - FullAuto
@@ -78,9 +78,13 @@
         task: TurretCompoundPD
       blackboard:
         RotateSpeed: !type:Single
-          6.282
+          12.564
         SoundTargetInLOS: !type:SoundPathSpecifier
           path: /Audio/_Mono/Weapons/Misc/pdtarget.ogg
+        VisionRadius: !type:Single
+          60.0
+        AggroVisionRadius: !type:Single
+          60.0
     - type: MouseRotator
       angleTolerance: 5
       rotationSpeed: 360
@@ -104,7 +108,7 @@
   parent: BaseWeaponTurretPD
   id: WeaponTurretPDK30
   name: K-30 point defense turret
-  description: A basic .25 caseless PD turret. Produces ammo from internal ammo fabricators, automatically targets meteors. Low-range though.
+  description: A basic .25 caseless PD turret. Produces ammo from internal ammo fabricators, automatically targets meteors.
   suffix: PointDefence
   components:
   - type: NpcFactionMember
