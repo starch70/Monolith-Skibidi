@@ -105,3 +105,11 @@ Entries:
       message: Ported over presets from Goob MRP.
   id: 15
   time: '2025-02-05T17:27:04.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Tweak
+      message: >-
+        Buffed PD turrets and gave them longer range. Meteor update, just a week
+        away!
+  id: 16
+  time: '2025-02-06T05:14:35.0000000+00:00'
