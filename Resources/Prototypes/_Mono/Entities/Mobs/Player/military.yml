@@ -1,7 +1,9 @@
+# MLA53
+
 - type: entity
   id: RandomHumanoidMilitarySpawner
   name: TSFMC Rifleman
-  suffix: Admeme, L2 Access
+  suffix: Admeme, L2 Access, MlA53
   components:
     - type: Sprite
       sprite: Mobs/Species/Human/parts.rsi
@@ -21,6 +23,36 @@
         settings: short
     - type: Loadout
       prototypes: [ MilitaryGear ]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesFirstMilitaryLeader
+        - NamesLastMilitary
+
+# M90A5
+
+- type: entity
+  id: RandomHumanoidMilitarySpawnerM90A5
+  name: TSFMC Rifleman
+  suffix: Admeme, L2 Access, M90A5
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: TSFMCRiflemanM90A5
+
+- type: randomHumanoidSettings
+  id: TSFMCRiflemanM90A5
+  parent: EventHumanoid
+  components:
+    - type: GhostRole
+      name: ghost-role-information-military-name
+      description: ghost-role-information-military-description
+      rules: ghost-role-information-military-rules
+      raffle:
+        settings: short
+    - type: Loadout
+      prototypes: [ MilitaryGearM90A5 ]
     - type: RandomMetadata
       nameSegments:
         - NamesFirstMilitaryLeader

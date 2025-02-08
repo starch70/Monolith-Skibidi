@@ -815,5 +815,8 @@
     - MercL1 # mono
     - MercL2 # mono
     - MercL3 # mono
+    - Xeno # mono
+    - BlueshieldOfficer # mono
+    - NanotrasenRepresentative # mono
   - type: NanoChatCard # DeltaV
     notificationsMuted: true

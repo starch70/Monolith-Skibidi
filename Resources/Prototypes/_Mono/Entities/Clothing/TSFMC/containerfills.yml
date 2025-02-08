@@ -1,7 +1,9 @@
+#MlA53 fills
+
 - type: entity
   parent: ClothingBackpackERTLeader
   id: ClothingBackpackERTLeaderFilledMLTR
-  suffix: Filled, TSFMC
+  suffix: Filled, TSFMC, MlA53
   components:
   - type: StorageFill
     contents:
@@ -12,7 +14,7 @@
 - type: entity
   parent: ClothingBeltMilitaryWebbing
   id: ClothingBeltMilitaryWebbingFilledMLTR
-  suffix: Filled, TSFMC
+  suffix: Filled, TSFMC, MlA53
   components:
   - type: StorageFill
     contents:
@@ -20,6 +22,34 @@
       - id: MagazinePistolSubMachineGun
       - id: MagazinePistolSubMachineGun
       - id: MagazineBoxPistol
+      - id: MedkitCombatFilled
+      - id: ExGrenade
+      - id: ExGrenade
+
+#M90A5 fills
+
+- type: entity
+  parent: ClothingBackpackERTLeader
+  id: ClothingBackpackERTLeaderFilledMLTRM90
+  suffix: Filled, TSFMC, M90A5
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleM90A5
+      - id: Emag
+      - id: Crowbar
+
+- type: entity
+  parent: ClothingBeltMilitaryWebbing
+  id: ClothingBeltMilitaryWebbingFilledMLTRM90
+  suffix: Filled, TSFMC, M90A5
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineLightRifle
+      - id: MagazineLightRifle
+      - id: MagazineLightRifle
+      - id: MagazineBoxLightRifleBig
       - id: MedkitCombatFilled
       - id: ExGrenade
       - id: ExGrenade
