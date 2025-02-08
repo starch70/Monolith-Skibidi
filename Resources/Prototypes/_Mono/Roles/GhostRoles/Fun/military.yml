@@ -27,3 +27,18 @@
     shoes: ClothingShoesBootsMagAdv
     id: MercL2IDCard
     belt: ClothingBeltMilitaryWebbingFilledMLTR
+
+- type: startingGear
+  id: MilitaryGearM90A5
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNinja
+    back: ClothingBackpackERTLeaderFilledMLTRM90
+    mask: ClothingMaskGasSecurity
+    eyes: ClothingEyesHudMedSec
+    ears: ClothingHeadsetTSFMCHeadsetAlt
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitScaf
+    suitstorage: OxygenTankFilled
+    shoes: ClothingShoesBootsMagAdv
+    id: MercL2IDCard
+    belt: ClothingBeltMilitaryWebbingFilledMLTRM90

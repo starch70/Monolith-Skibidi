@@ -16,3 +16,7 @@
     - MercL1
     - MercL2
     - MercL3
+
+- type: accessLevel
+  id: Xeno
+  name: id-card-access-level-xeno

@@ -22,3 +22,11 @@
   - type: AccessReader
     access: [["MercL3"]]
 
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsXeno
+  suffix: Xeno, Locked
+  components:
+  - type: AccessReader
+    access: [["Xeno"]]
+

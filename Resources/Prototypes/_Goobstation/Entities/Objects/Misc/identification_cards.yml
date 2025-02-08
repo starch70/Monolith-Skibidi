@@ -21,6 +21,9 @@
     tags:
     - CentralCommand
     - SyndicateAgent
+    - Xeno # mono
+    - BlueshieldOfficer # mono
+    - NanotrasenRepresentative # mono
 
 # Helldiver
 - type: entity
@@ -54,6 +57,8 @@
     - AllAccess
     tags:
     - CentralCommand
+    - BlueshieldOfficer # mono
+    - NanotrasenRepresentative # mono
 
 # Blueshield
 - type: entity
