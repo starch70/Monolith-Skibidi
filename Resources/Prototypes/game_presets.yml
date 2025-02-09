@@ -3,13 +3,11 @@
   alias:
     - survival
   name: survival-title
-  showInVote: false # secret
+  showInVote: true # secret
   description: survival-description
   rules:
-    # - MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler # Mono - Back in business!
     - RampingStationEventScheduler
-    - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -24,7 +22,6 @@
   rules:
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
-    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -43,10 +40,9 @@
     - Heretic
     - BlobGameMode
     - LoneAbductorSpawn
-    # - KesslerSyndromeScheduler Goobstation - nuh uh
+    - KesslerSyndromeScheduler # Mono - Back in business!
     - RampingStationEventScheduler
     - Changeling # Goobstation - changeling playtest
-    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -73,8 +69,6 @@
     - MeteorSwarmMildScheduler
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
-    - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
     - Changeling # Goobstation - changeling playtest
 
@@ -84,12 +78,11 @@
   - extended
   - shittersafari
   name: extended-title
-  showInVote: false #2boring2vote
+  showInVote: true #2boring2vote
   description: extended-description
   rules:
   - BasicStationEventScheduler
-  # - MeteorSwarmScheduler Goobstation - nuh uh
-  - SpaceTrafficControlEventScheduler
+  - MeteorSwarmScheduler # Mono - Back in business!
   - BasicRoundstartVariation
 
 - type: gamePreset
@@ -101,7 +94,6 @@
   showInVote: false #4boring4vote
   description: greenshift-description
   rules:
-  - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
 
 - type: gamePreset
@@ -115,6 +107,8 @@
   rules:
     - Secret
     - BasicStationEventScheduler
+    - MeteorSwarmScheduler # Mono - Back in business!
+    - BasicRoundstartVariation
 
 - type: gamePreset
   id: SecretExtended #For Admin Use: Runs Extended but shows "Secret" in lobby.
@@ -125,8 +119,7 @@
   description: secret-description
   rules:
     - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
-    - SpaceTrafficControlEventScheduler
+    - MeteorSwarmScheduler # Mono - Back in business!
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -137,7 +130,6 @@
   showInVote: false #Admin Use
   description: secret-description
   rules:
-  - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
 
 - type: gamePreset
@@ -158,13 +150,12 @@
     - tator
   name: traitor-title
   description: traitor-description
-  showInVote: false
+  showInVote: true
   rules:
     - Traitor
     - SubGamemodesRule
     - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
-    - SpaceTrafficControlEventScheduler
+    - MeteorSwarmScheduler # Mono - Back in business!
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -175,7 +166,7 @@
   name: death-match-title
   description: death-match-description
   maxPlayers: 15
-  showInVote: true
+  showInVote: false
   supportedMaps: DeathMatchMapPool
   rules:
     - DeathMatch31
@@ -191,8 +182,7 @@
     - Nukeops
     - SubGamemodesRule
     - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
-    - SpaceTrafficControlEventScheduler
+    - MeteorSwarmScheduler # Mono - Back in business!
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -203,13 +193,12 @@
     - revolutionaries
   name: rev-title
   description: rev-description
-  showInVote: false
+  showInVote: true
   rules:
     - Revolutionary
     - SubGamemodesRule
     - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
-    - SpaceTrafficControlEventScheduler
+    - MeteorSwarmScheduler # Mono - Back in business!
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -226,8 +215,7 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
-#  - MeteorSwarmScheduler Goobstation - nuh uh
-  - SpaceTrafficControlEventScheduler
+  - MeteorSwarmScheduler # Mono - Back in business!
   - BasicRoundstartVariation
 
 - type: gamePreset
@@ -243,5 +231,4 @@
   - Zombie
   - BasicStationEventScheduler
   - KesslerSyndromeScheduler
-  - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation

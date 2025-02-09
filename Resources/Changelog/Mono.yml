@@ -73,3 +73,67 @@ Entries:
       message: PD properly targets small meteors now
   id: 10
   time: '2025-02-01T08:52:58.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: MlA-53 SMG for UNMC to replace lecter.
+    - type: Add
+      message: PD turret flatpacks, still unobtainable outside of spawning.
+  id: 11
+  time: '2025-02-02T03:19:36.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: UNMC is now TSFMC
+  id: 12
+  time: '2025-02-02T07:07:52.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Tweak
+      message: Bullets now break lights. Taken from Wizden.
+  id: 13
+  time: '2025-02-02T10:49:24.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Added the Chitinid species. Ported from Delta-V.
+  id: 14
+  time: '2025-02-04T18:10:04.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Ported over presets from Goob MRP.
+  id: 15
+  time: '2025-02-05T17:27:04.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Tweak
+      message: >-
+        Buffed PD turrets and gave them longer range. Meteor update, just a week
+        away!
+  id: 16
+  time: '2025-02-06T05:14:35.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: Added 20mm caseless PD turret variant
+    - type: Tweak
+      message: PD turret range changed from 60 to 35
+  id: 17
+  time: '2025-02-06T18:07:00.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Added back natural meteor events!
+    - type: Tweak
+      message: >-
+        Changed Reach, Saltern, and Atlas to accommodate meteors. More maps
+        coming soon!
+  id: 18
+  time: '2025-02-06T20:38:34.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: Proper M-90A5 sprites for inhands and suit storage.
+  id: 19
+  time: '2025-02-09T00:42:47.0000000+00:00'

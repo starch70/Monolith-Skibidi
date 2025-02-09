@@ -1,8 +1,8 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyMilitary
-  name: military encryption key
-  description: An encryption key used by the sectors military and peacekeeping forces.
+  name: TSFMC encryption key
+  description: An encryption key used by the Trans Solar Federation Marine Corps.
   components:
   - type: EncryptionKey
     channels:

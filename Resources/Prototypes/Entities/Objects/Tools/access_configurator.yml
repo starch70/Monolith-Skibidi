@@ -125,6 +125,7 @@
     - MercL1 # mono
     - MercL2 # mono
     - MercL3 # mono
+    - Xeno # mono
     privilegedIdSlot:
       name: id-card-console-privileged-id
       ejectSound: /Audio/Machines/id_swipe.ogg

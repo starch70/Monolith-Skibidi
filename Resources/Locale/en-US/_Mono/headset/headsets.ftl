@@ -1,1 +1,1 @@
-chat-radio-military = UN Combat Communications
+chat-radio-military = TSFMC Combat Communications
