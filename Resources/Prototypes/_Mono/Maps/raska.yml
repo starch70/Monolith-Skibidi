@@ -1,0 +1,49 @@
+- type: gameMap
+  id: Raska
+  mapName: 'Raska'
+  mapPath: /Maps/_Mono/raska.yml
+  minPlayers: 4
+  maxPlayers: 35
+  stations:
+    Raska:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Raska {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency.yml
+        - type: StationJobs
+          availableJobs:
+          #civilian
+            Passenger: [ -1, -1 ]
+          #command
+            Captain: [ 1, 1 ]
+          #engineering
+            AtmosphericTechnician: [ 1, 1 ]
+            StationEngineer: [ 2, 2 ]
+            TechnicalAssistant: [ 1, 1 ]
+          #medical
+            Chemist: [ 1, 1 ]
+            MedicalDoctor: [ 2, 2 ]
+            MedicalIntern: [ 1, 1 ]
+            Paramedic: [ 1, 1 ]
+          #security
+            HeadOfSecurity: [ 1, 1 ]
+            SecurityOfficer: [ 2, 2 ]
+            SecurityCadet: [ 1, 1 ]
+          #service
+            Botanist: [ 2, 4 ]
+            Chef: [ 3, 4 ]
+            Janitor: [ 2, 3 ]
+          #science
+            ResearchAssistant: [ 1, 1 ]
+            Scientist: [ 2, 2 ]
+          #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 1, 1 ]
+          #supply
+            CargoTechnician: [ 4, 4 ]
+            SalvageSpecialist: [ 2, 2 ]
