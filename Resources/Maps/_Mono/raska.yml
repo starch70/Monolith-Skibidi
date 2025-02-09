@@ -36,6 +36,8 @@ entities:
     - type: Broadphase
     - type: OccluderTree
     - type: LoadedMap
+    - type: Parallax
+      parallax: CoreStation
   - uid: 2
     components:
     - type: MetaData
