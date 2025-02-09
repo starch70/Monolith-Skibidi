@@ -131,3 +131,9 @@ Entries:
         coming soon!
   id: 18
   time: '2025-02-06T20:38:34.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: Proper M-90A5 sprites for inhands and suit storage.
+  id: 19
+  time: '2025-02-09T00:42:47.0000000+00:00'
