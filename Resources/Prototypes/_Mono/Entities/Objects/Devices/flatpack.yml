@@ -60,7 +60,7 @@
   description: A flatpack used for constructing a research point generator.
   components:
   - type: Flatpack
-    entity: ResearchAndDevelopmentPointSource
+    entity: BaseResearchAndDevelopmentPointSource
   - type: StaticPrice
     price: 75
 
