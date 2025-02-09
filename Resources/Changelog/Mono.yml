@@ -137,3 +137,9 @@ Entries:
       message: Proper M-90A5 sprites for inhands and suit storage.
   id: 19
   time: '2025-02-09T00:42:47.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: Added a new lowpop map for 4-35 pop, Raska.
+  id: 20
+  time: '2025-02-09T08:19:37.0000000+00:00'
