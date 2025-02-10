@@ -149,3 +149,9 @@ Entries:
       message: No more malding in dead chat. MRPify.
   id: 21
   time: '2025-02-09T09:48:32.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Fix
+      message: Honkops has minimum pop now
+  id: 22
+  time: '2025-02-10T03:56:00.0000000+00:00'
