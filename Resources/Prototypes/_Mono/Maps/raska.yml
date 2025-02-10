@@ -9,10 +9,10 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Raska-Class Expedition Vessel {1}'
+          mapNameTemplate: '{0} Raska-Class Expedition Ship {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: '-EXP'
+            prefixCreator: '-EXPED'
         - type: StationBlobConfig
           stageBegin: 25
           stageCritical: 350
@@ -41,9 +41,10 @@
             SecurityOfficer: [ 2, 2 ]
             SecurityCadet: [ 1, 1 ]
           #service
-            Botanist: [ 2, 4 ]
-            Chef: [ 3, 4 ]
-            Janitor: [ 2, 3 ]
+            Botanist: [ 1, 1 ]
+            Chef: [ 1, 1 ]
+            Janitor: [ 1, 1 ]
+            Bartender: [ 1, 1 ]
           #science
             ResearchAssistant: [ 1, 1 ]
             Scientist: [ 2, 2 ]
