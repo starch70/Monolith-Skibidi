@@ -195,6 +195,8 @@
   parent: BaseNukeopsRule
   id: Honkops
   components:
+  - type: GameRule # mono - dumbasses
+    minPlayers: 20
   - type: RandomMetadata # this generates the random operation name cuz it's cool.
     nameSegments:
     - operationPrefixHonkops
