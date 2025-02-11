@@ -155,3 +155,9 @@ Entries:
       message: Honkops has minimum pop now
   id: 22
   time: '2025-02-10T03:56:00.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Fix
+      message: Actually fixed BSO loadout having jumpskirt by default and no shoes
+  id: 23
+  time: '2025-02-11T12:26:53.0000000+00:00'
