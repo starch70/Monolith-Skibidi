@@ -161,3 +161,9 @@ Entries:
       message: Actually fixed BSO loadout having jumpskirt by default and no shoes
   id: 23
   time: '2025-02-11T12:26:53.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Docked shuttles now FTL together.
+  id: 24
+  time: '2025-02-12T22:40:41.0000000+00:00'
