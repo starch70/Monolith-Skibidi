@@ -948,6 +948,7 @@ entities:
     - type: SpreaderGrid
     - type: GridPathfinding
     - type: Godmode
+    - type: NoFTL
 - proto: AirlockExternalGlass
   entities:
   - uid: 2
