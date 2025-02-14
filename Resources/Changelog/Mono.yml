@@ -167,3 +167,9 @@ Entries:
       message: Docked shuttles now FTL together.
   id: 24
   time: '2025-02-12T22:40:41.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: i forgot the saturation for the ui. Sorry!
+  id: 25
+  time: '2025-02-14T02:22:51.0000000+00:00'
