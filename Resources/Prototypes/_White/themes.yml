@@ -2,12 +2,12 @@
   id: SS14OperativeTheme
   path: /Textures/_White/Interface/Operative/
   colors:
-    whiteText: "#FFF5EE"
+    whiteText: "#e8e8e8" # mono
     slotSelectedGold: "#e6b812"
     slotColor: "#0f1215"
-    slotOutline: "#333850"
-    slotText: "#333850"
-    nanoGold: "#A88B5E"
+    slotOutline: "#4f4f4f" # mono
+    slotText: "#4f4f4f" # mono
+    nanoGold: "#9c9c9c" # mono
     goodGreenFore: "#31843E"
     concerningOrangeFore: "#A5762F"
     dangerousRedFore: "#BB3232"
