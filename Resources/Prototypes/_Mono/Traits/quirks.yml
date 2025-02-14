@@ -1,0 +1,36 @@
+- type: trait
+  id: Vigor
+  name: vigor-trait-name
+  description: vigor-trait-desc
+  category: Quirks
+  cost: 2
+  components:
+    - type: StaminaResistance
+      coefficient: 0.8 # 20% reduction in stamina damage
+
+- type: trait
+  id: LiquorLifeline
+  name: liquor-lifeline-trait-name
+  description: liquor-lifeline-trait-desc
+  category: Quirks
+  cost: 4
+  components:
+    - type: LiquorLifeline
+
+- type: trait
+  id: BionicArm
+  name: bionic-arm-trait-name
+  description: bionic-arm-trait-desc
+  category: Quirks
+  cost: 6
+  components:
+    - type: BionicArm
+
+- type: trait
+  id: SelfAware
+  name: trait-self-aware-name
+  description: trait-self-aware-description
+  category: Quirks
+  cost: 2
+  components:
+    - type: SelfAware
