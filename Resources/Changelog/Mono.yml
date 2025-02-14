@@ -173,3 +173,9 @@ Entries:
       message: i forgot the saturation for the ui. Sorry!
   id: 25
   time: '2025-02-14T02:22:51.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Added four new Quirks!
+  id: 26
+  time: '2025-02-14T06:16:00.0000000+00:00'
