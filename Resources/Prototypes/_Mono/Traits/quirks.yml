@@ -86,7 +86,7 @@
   category: Quirks
   cost: 4
   components:
-  - type: SurgerySpeedModifierComponent
+  - type: SurgerySpeedModifier
     speedModifier: 2.25
 
 - type: trait
