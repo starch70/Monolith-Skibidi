@@ -71,3 +71,5 @@ trait-spanish-desc = Hola señor, donde esta la biblioteca.
 
 trait-dementia-name = Dementia
 trait-dementia-desc = I-... uh, what was this one about again? Oh thats right! You forget a lot sometimes
+
+trait-species-restricted = Your species cannot take this trait.

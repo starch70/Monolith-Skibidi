@@ -9,35 +9,53 @@ namespace Content.Client.Lobby.UI.Roles;
 [GenerateTypedNameReferences]
 public sealed partial class TraitPreferenceSelector : Control
 {
-    public int Cost;
+    public event Action<bool>? PreferenceChanged;
+
+    private readonly CheckBox _checkbox;
+    private readonly Label _costLabel;
+
+    public int Cost
+    {
+        get => _cost;
+        set
+        {
+            _cost = value;
+            UpdateCostLabel();
+        }
+    }
+    private int _cost;
 
     public bool Preference
     {
-        get => Checkbox.Pressed;
-        set => Checkbox.Pressed = value;
+        get => _checkbox.Pressed;
+        set => _checkbox.Pressed = value;
     }
 
-    public event Action<bool>? PreferenceChanged;
-
-    public TraitPreferenceSelector(TraitPrototype trait)
+    public TraitPreferenceSelector(string name, int cost, string? description = null)
     {
         RobustXamlLoader.Load(this);
+        _checkbox = Checkbox;
+        _costLabel = CostLabel;
 
-        var text = trait.Cost != 0 ? $"[{trait.Cost}] " : "";
-        text += Loc.GetString(trait.Name);
+        _checkbox.Text = name;
+        Cost = cost;
 
-        Cost = trait.Cost;
-        Checkbox.Text = text;
-        Checkbox.OnToggled += OnCheckBoxToggled;
+        if (description != null)
+            _checkbox.ToolTip = description;
 
-        if (trait.Description is { } desc)
-        {
-            Checkbox.ToolTip = Loc.GetString(desc);
-        }
+        _checkbox.OnToggled += OnCheckBoxToggled;
+        UpdateCostLabel();
+    }
+
+    private void UpdateCostLabel()
+    {
+        var sign = _cost >= 0 ? "+" : "";
+        _costLabel.Text = $"{sign}{_cost}";
+        _costLabel.Modulate = _cost >= 0 ? Color.FromHex("#FF4040") : Color.FromHex("#40FF40");
     }
 
     private void OnCheckBoxToggled(BaseButton.ButtonToggledEventArgs args)
     {
-        PreferenceChanged?.Invoke(Preference);
+        PreferenceChanged?.Invoke(args.Pressed);
     }
 }

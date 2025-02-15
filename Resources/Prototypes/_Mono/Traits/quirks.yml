@@ -5,8 +5,8 @@
   category: Quirks
   cost: 2
   components:
-    - type: StaminaResistance
-      coefficient: 0.8 # 20% reduction in stamina damage
+  - type: StaminaResistance
+    coefficient: 0.8 # 20% reduction in stamina damage
 
 - type: trait
   id: LiquorLifeline
@@ -15,7 +15,7 @@
   category: Quirks
   cost: 4
   components:
-    - type: LiquorLifeline
+  - type: LiquorLifeline
 
 - type: trait
   id: BionicArm
@@ -24,7 +24,7 @@
   category: Quirks
   cost: 6
   components:
-    - type: BionicArm
+  - type: BionicArm
 
 - type: trait
   id: SelfAware
@@ -33,4 +33,7 @@
   category: Quirks
   cost: 2
   components:
-    - type: SelfAware
+  - type: SelfAware
+  speciesRestrictions:
+  - IPC
+  - Diona

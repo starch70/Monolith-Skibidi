@@ -10,4 +10,4 @@
 - type: traitCategory
   id: Quirks
   name: trait-category-quirks
-  maxTraitPoints: 4 # Mono
+  maxTraitPoints: 2 # Mono
