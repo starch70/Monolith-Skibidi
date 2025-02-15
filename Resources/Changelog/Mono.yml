@@ -191,3 +191,9 @@ Entries:
       message: 7 new traits have been added.
   id: 28
   time: '2025-02-15T17:25:01.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Added Osteogenesis Imperfecta trait!
+  id: 29
+  time: '2025-02-15T22:41:27.0000000+00:00'
