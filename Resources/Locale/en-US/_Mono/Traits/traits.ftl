@@ -25,9 +25,6 @@ trait-thick-skin-description = You take 15% less brute and burn damage, but syri
 trait-thieving-name = Thieving
 trait-thieving-description = Your hands are agile and precise, and you can easily pickpocket people.
 
-trait-light-implant-name = Light Implant
-trait-light-implant-description = You get a light implant roundstart, a small weak light embedded in your body. Very weak.
-
 trait-radio-implant-name = Radio Implant
 trait-radio-implant-description = You can access the common radio channel anywhere on the station.
 
