@@ -42,3 +42,17 @@
     shoes: ClothingShoesBootsMagAdv
     id: MercL2IDCard
     belt: ClothingBeltMilitaryWebbingFilledMLTRM90
+
+- type: startingGear
+  id: MilitaryGearRifleman
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTSFMCRifleman
+    back: ClothingBackpackERTLeaderFilledMLTRM90
+    mask: ClothingMaskNeckGaiter
+    ears: ClothingHeadsetTSFMCHeadsetAlt
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasicSlim
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetTSFMC
+    id: MercL1IDCard
+    belt: ClothingBeltMilitaryWebbingFilledMLTRM90
