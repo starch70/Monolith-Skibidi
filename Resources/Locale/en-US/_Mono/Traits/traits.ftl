@@ -7,6 +7,12 @@ liquor-lifeline-trait-desc = You were born with a dwarf's liver, making you much
 bionic-arm-trait-name = Bionic Arms
 bionic-arm-trait-desc = Your arms have been replaced by bionic limbs, and you can pry open unpowered doors with them.
 
+trait-self-aware-name = Self-Aware
+trait-self-aware-description = You can examine your damage like a health analyzer.
+
+self-aware-examinable-verb-text = Check Damage
+self-aware-examinable-verb-message = Check Damage
+
 trait-cellular-regen-name = Cellular Regeneration
 trait-cellular-regen-description = Be it natural mutations, or genetic engineering, your cells will slowly regenerate all non-physical damage types, such as Cellular, Toxin, and Radiation. !! MIGHT NOT WORK WITH ADAPTIVE FIBERS !!
 
@@ -28,8 +34,5 @@ trait-thieving-description = Your hands are agile and precise, and you can easil
 trait-radio-implant-name = Radio Implant
 trait-radio-implant-description = You can access the common radio channel anywhere on the station.
 
-trait-self-aware-name = Self-Aware
-trait-self-aware-description = You can examine your damage like a health analyzer.
-
-self-aware-examinable-verb-text = Check Damage
-self-aware-examinable-verb-message = Check Damage
+osteogenesis-imperfecta-trait-name = Osteogenesis Imperfecta
+osteogenesis-imperfecta-trait-desc = You have brittle bones, making you enter critical condition 50 points sooner than normal.

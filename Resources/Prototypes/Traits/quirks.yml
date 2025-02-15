@@ -3,7 +3,7 @@
   name: trait-pacifist-name
   description: trait-pacifist-desc
   category: Quirks
-  cost: -6
+  cost: -5
   components:
   - type: Pacified
 
@@ -24,7 +24,6 @@
   name: trait-snoring-name
   description: trait-snoring-desc
   category: Quirks
-  cost: -1
   components:
   - type: Snoring
   speciesRestrictions:
