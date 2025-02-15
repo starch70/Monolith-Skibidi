@@ -13,7 +13,7 @@
 
 - type: randomHumanoidSettings
   id: TSFMCMarine
-  parent: EventHumanoid
+  parent: EventHumanMindShielded
   components:
     - type: GhostRole
       name: ghost-role-information-military-name
@@ -43,7 +43,7 @@
 
 - type: randomHumanoidSettings
   id: TSFMCMarineM90A5
-  parent: EventHumanoid
+  parent: EventHumanMindShielded
   components:
     - type: GhostRole
       name: ghost-role-information-military-name
@@ -73,7 +73,7 @@
 
 - type: randomHumanoidSettings
   id: TSFMCRifleman
-  parent: EventHumanoid
+  parent: EventHumanMindShielded
   components:
     - type: GhostRole
       name: ghost-role-information-military-name
