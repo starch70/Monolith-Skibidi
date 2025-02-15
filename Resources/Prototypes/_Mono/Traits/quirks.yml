@@ -105,30 +105,6 @@
         Burn: 3
 
 - type: trait
-  id: FastGoFastWow
-  name: trait-fast-name
-  description: trait-fast-description
-  category: Quirks
-  cost: 4
-  components:
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 5
-
-- type: trait
-  id: Flimsy
-  name: trait-flimsy-name
-  description: trait-flimsy-description
-  category: Quirks
-  cost: -8
-  components:
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      50: Critical
-      150: Dead
-
-- type: trait
   id: ThickSkin
   name: trait-thick-skin-name
   description: trait-thick-skin-description
@@ -145,3 +121,37 @@
         Heat: 0.85
   speciesRestrictions:
   - IPC
+
+- type: trait
+  id: ThievingHands
+  name: trait-thieving-name
+  description: trait-thieving-description
+  category: Quirks
+  cost: 10
+  components:
+  - type: Thieving
+
+- type: trait
+  id: LightImplant
+  name: trait-light-implant-name
+  description: trait-light-implant-description
+  category: Quirks
+  cost: 1
+  components:
+  - type: Implanter
+    implant: LightImplant
+
+- type: trait
+  id: CommonRadioImplant
+  name: trait-radio-implant-name
+  description: trait-radio-implant-description
+  category: Quirks
+  cost: 3
+  components:
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+  - type: ActiveRadio
+    channels:
+    - Common

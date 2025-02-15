@@ -17,16 +17,19 @@ trait-surgeon-name = Natural Surgeon
 trait-surgeon-description = You are a natural surgeon, and do all surgeries at 2.25x speed. !! DOES NOT STACK WITH JOB SURGERY SPEED MULTIPLIERS !!
 
 trait-clumsy-name = Clumsy
-trait-clumsy-description = Whoops! You are as clumsy as a clown, and cannot use ranged weapons.
-
-trait-fast-name = Agile
-trait-fast-description = You move slightly faster than others.
-
-trait-flimsy-name = Fragile
-trait-flimsy-description = You go into critical condition at 50 health instead of 100, and you die at 150 damage instead of 200.
+trait-clumsy-description = Whoops! You are as clumsy as a clown, and cannot use ranged weapons or jump on tables.
 
 trait-thick-skin-name = Thick Skin
 trait-thick-skin-description = You take 15% less brute and burn damage, but syringes cannot pierce through your skin anymore.
+
+trait-thieving-name = Thieving
+trait-thieving-description = Your hands are agile and precise, and you can easily pickpocket people.
+
+trait-light-implant-name = Light Implant
+trait-light-implant-description = You get a light implant roundstart, a small weak light embedded in your body. Very weak.
+
+trait-radio-implant-name = Radio Implant
+trait-radio-implant-description = You can access the common radio channel anywhere on the station.
 
 trait-self-aware-name = Self-Aware
 trait-self-aware-description = You can examine your damage like a health analyzer.
