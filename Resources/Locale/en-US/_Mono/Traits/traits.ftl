@@ -7,6 +7,27 @@ liquor-lifeline-trait-desc = You were born with a dwarf's liver, making you much
 bionic-arm-trait-name = Bionic Arms
 bionic-arm-trait-desc = Your arms have been replaced by bionic limbs, and you can pry open unpowered doors with them.
 
+trait-cellular-regen-name = Cellular Regeneration
+trait-cellular-regen-description = Be it natural mutations, or genetic engineering, your cells will slowly regenerate all non-physical damage types, such as Cellular, Toxin, and Radiation. !! MIGHT NOT WORK WITH ADAPTIVE FIBERS !!
+
+trait-adaptive-fibers-name = Adaptive Fibers
+trait-adaptive-fibers-description = Your fibers adapt to damage relatively quickly, and you will slowly heal brute, burn, and airloss damage. !! MIGHT NOT WORK WITH CELLULAR REGENERATION !!
+
+trait-surgeon-name = Natural Surgeon
+trait-surgeon-description = You are a natural surgeon, and do all surgeries at 2.25x speed. !! DOES NOT STACK WITH JOB SURGERY SPEED MULTIPLIERS !!
+
+trait-clumsy-name = Clumsy
+trait-clumsy-description = Whoops! You are as clumsy as a clown, and cannot use ranged weapons.
+
+trait-fast-name = Agile
+trait-fast-description = You move slightly faster than others.
+
+trait-flimsy-name = Fragile
+trait-flimsy-description = You go into critical condition at 50 health instead of 100, and you die at 150 damage instead of 200.
+
+trait-thick-skin-name = Thick Skin
+trait-thick-skin-description = You take 15% less brute and burn damage, but syringes cannot pierce through your skin anymore.
+
 trait-self-aware-name = Self-Aware
 trait-self-aware-description = You can examine your damage like a health analyzer.
 
