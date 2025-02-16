@@ -197,3 +197,9 @@ Entries:
       message: Added Osteogenesis Imperfecta trait!
   id: 29
   time: '2025-02-15T22:41:27.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Fix
+      message: Fixed thieving trait
+  id: 30
+  time: '2025-02-16T01:10:47.0000000+00:00'
