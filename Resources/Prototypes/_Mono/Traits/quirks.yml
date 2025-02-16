@@ -130,6 +130,8 @@
   cost: 10
   components:
   - type: Thieving
+    stripTimeReduction: 1.5
+    stealthy: true
 
 - type: trait
   id: CommonRadioImplant
