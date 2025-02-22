@@ -203,3 +203,11 @@ Entries:
       message: Fixed thieving trait
   id: 30
   time: '2025-02-16T01:10:47.0000000+00:00'
+- author: DisguisedBear
+  changes:
+    - type: Add
+      message: '- Station AI can now receive the "Exodus" lawboard'
+    - type: Add
+      message: '- Ion storm event can now give AI the "Exodus" lawset'
+  id: 31
+  time: '2025-02-22T00:41:05.0000000+00:00'
