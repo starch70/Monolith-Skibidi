@@ -211,3 +211,9 @@ Entries:
       message: '- Ion storm event can now give AI the "Exodus" lawset'
   id: 31
   time: '2025-02-22T00:41:05.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Added ship gunnery.
+  id: 32
+  time: '2025-02-23T04:43:42.0000000+00:00'
