@@ -25,7 +25,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 1000
+        Structural: 250
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
     layers:
@@ -70,8 +70,17 @@
   components:
   - type: CartridgeAmmo
     proto: 90mmBulletArmorPiercing
+  - type: Projectile
+    damage:
+      types:
+        Structural: 300
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
+  - type: Explosive
+    maxIntensity: 30
+    intensitySlope: 20
+    totalIntensity: 30
+    maxTileBreak: 5
 
 - type: entity
   id: 90mmBulletExplosiveBase
@@ -82,3 +91,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
+  - type: Projectile
+    damage:
+      types:
+        Structural: 100
