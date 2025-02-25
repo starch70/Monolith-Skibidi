@@ -42,7 +42,7 @@
     isInCombatMode: true
   - type: Airtight
   - type: ProjectileBatteryAmmoProvider
-    proto: 57mmCartridgeArmorPiercing
+    proto: 57mmBulletArmorPiercing
     fireCost: 15
   - type: RadiationBlocker
     resistance: 8
@@ -82,7 +82,7 @@
     powerLoad: 500
   - type: ExtensionCableReceiver
   - type: ProjectileBatteryAmmoProvider
-    proto: 90mmShellArmorPiercing
+    proto: 90mmBulletArmorPiercing
     fireCost: 50
 
 # Base
