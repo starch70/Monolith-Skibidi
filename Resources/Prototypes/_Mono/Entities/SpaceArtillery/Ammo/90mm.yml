@@ -73,14 +73,14 @@
   - type: Projectile
     damage:
       types:
-        Structural: 300
+        Structural: 250
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/630_armorpiercing_shell_casing.rsi
   - type: Explosive
-    maxIntensity: 30
-    intensitySlope: 20
-    totalIntensity: 30
-    maxTileBreak: 5
+    maxIntensity: 10
+    intensitySlope: 5
+    totalIntensity: 10
+    maxTileBreak: 2
 
 - type: entity
   id: 90mmBulletExplosiveBase
