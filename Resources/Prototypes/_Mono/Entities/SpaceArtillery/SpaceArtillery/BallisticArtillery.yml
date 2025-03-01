@@ -58,6 +58,8 @@
   parent: BallisticArtillery
   description: A dual barrel, heavy autocannon. Links up to a central GCS, and is not automated like PD turrets.
   components:
+  - type: StaticPrice
+    price: 3000
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/artillery.rsi
     layers:
@@ -99,6 +101,8 @@
   parent: BallisticArtillery
   description: Launches magnetically contained balls of plasma at targets. Links up to a central gunnery control system.
   components:
+  - type: StaticPrice
+    price: 6500
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/t35.rsi
     layers:
