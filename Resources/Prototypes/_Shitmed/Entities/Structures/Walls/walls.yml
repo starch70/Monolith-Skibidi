@@ -31,8 +31,8 @@
     damageModifierSet: StructuralMetallic
   - type: Physics
     bodyType: Static
-  - type: Reflect
-    reflectProb: 1
+  #- type: Reflect # Mono - remove reflect
+  #  reflectProb: 1
   - type: Pullable
   - type: Airtight
     noAirWhenFullyAirBlocked: false
@@ -82,5 +82,5 @@
     key: walls
     base: state
   - type: Appearance
-  - type: Reflect
-    reflectProb: 1
+  #- type: Reflect # Mono - remove reflect
+  #  reflectProb: 1
