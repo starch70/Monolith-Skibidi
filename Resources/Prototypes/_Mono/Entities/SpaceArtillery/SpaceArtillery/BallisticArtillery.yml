@@ -46,6 +46,9 @@
     fireCost: 15
   - type: RadiationBlocker
     resistance: 8
+  - type: RadarBlip
+    color: "#00A6FF"
+    scale: 1
 
 # 90mm
 
@@ -84,6 +87,9 @@
   - type: ProjectileBatteryAmmoProvider
     proto: 90mmBulletArmorPiercing
     fireCost: 50
+  - type: RadarBlip
+    color: "#FF9100"
+    scale: 1
 
 # 90mm
 
@@ -96,7 +102,7 @@
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/t35.rsi
     layers:
-    - state: artillery
+    - state: space_artillery
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
@@ -106,8 +112,8 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 3
-    projectileSpeed: 95
+    fireRate: 0.5
+    projectileSpeed: 30
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
     soundEmpty:
@@ -121,7 +127,27 @@
   - type: ExtensionCableReceiver
   - type: ProjectileBatteryAmmoProvider
     proto: ShipMediumPlasmaProjectile
-    fireCost: 50
+    fireCost: 500
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    color: "#C92BCC"
+    scale: 1
 
 # Base
 
