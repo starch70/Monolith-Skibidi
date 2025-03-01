@@ -7,10 +7,10 @@
     - type: Projectile
       damage:
         types:
-          Caustic: 50
-          Structural: 350
-          Heat: 150
-          Radiation: 20
+          Caustic: 100
+          Structural: 700
+          Heat: 225
+          Radiation: 50
           Ion: 40
     - type: Sprite
       sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
