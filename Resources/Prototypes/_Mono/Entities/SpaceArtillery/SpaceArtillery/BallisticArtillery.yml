@@ -93,7 +93,7 @@
     color: "#FF9100"
     scale: 1
 
-# 90mm
+# plasma medium
 
 - type: entity
   id: WeaponTurretType35
@@ -102,7 +102,7 @@
   description: Launches magnetically contained balls of plasma at targets. Links up to a central gunnery control system.
   components:
   - type: StaticPrice
-    price: 6500
+    price: 8500
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/t35.rsi
     layers:
@@ -116,7 +116,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 0.5
+    fireRate: 0.75
     projectileSpeed: 30
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -136,13 +136,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 1200
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 1000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
