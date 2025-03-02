@@ -1,10 +1,10 @@
 - type: tile
   id: FloorAbductor
-  name: tiles-abductor-floor
+  name: abductor floor # Mono
   sprite: /Textures/_Shitmed/Tiles/abductor_tile.png
-  isSubfloor: true
+  isSubfloor: false # Mono
   footstepSounds:
-    collection: FootstepAsteroid
+    collection: FootstepPlating # Mono
   heatCapacity: 10000
-  weather: true
-  indestructible: true
+  weather: false # Mono
+  indestructible: false # Mono
