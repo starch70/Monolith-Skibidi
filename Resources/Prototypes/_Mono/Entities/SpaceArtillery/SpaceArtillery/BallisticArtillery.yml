@@ -117,7 +117,7 @@
     range: 500
   - type: Gun
     fireRate: 0.75
-    projectileSpeed: 30
+    projectileSpeed: 85
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
     soundEmpty:
@@ -131,7 +131,7 @@
   - type: ExtensionCableReceiver
   - type: ProjectileBatteryAmmoProvider
     proto: ShipMediumPlasmaProjectile
-    fireCost: 500
+    fireCost: 125
   - type: Destructible
     thresholds:
     - trigger:

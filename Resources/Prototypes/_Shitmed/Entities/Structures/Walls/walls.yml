@@ -1,9 +1,9 @@
 #shuttle walls
 - type: entity
   id: WallAbductorDiagonal
-  name: shuttle wall
+  name: nanolaminate wall # mono
   suffix: Diagonal
-  description: Keeps the air in and the bloodthirsty salvagers out.
+  description: What the fuck is nanolaminate? # mono
   placement:
     mode: SnapgridCenter
     snap:
@@ -55,13 +55,35 @@
   - type: Construction
     graph: Girder
     node: diagonalshuttleWall
+  - type: Destructible # Mono - make them destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 3000 # 2x plastitanium
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
 
 - type: entity
   parent: BaseWall
   id: WallAbductor
-  name: shuttle wall
+  name: nanolaminate wall # mono
   suffix: Reinforced, Exterior
-  description: Keeps the air in and the bloodthirsty salvagers out.
+  description: What the fuck is nanolaminate? # mono
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -84,3 +106,16 @@
   - type: Appearance
   #- type: Reflect # Mono - remove reflect
   #  reflectProb: 1
+  - type: Destructible # Mono - make them destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 2000 # 2x plastitanium
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              Girder:
+                min: 1
+                max: 1
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
