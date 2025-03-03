@@ -225,3 +225,9 @@ Entries:
       message: Fixed minor bugs on ships.
   id: 33
   time: '2025-03-01T23:26:21.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: Abductor walls are now properly destructible
+  id: 34
+  time: '2025-03-03T00:45:04.0000000+00:00'
