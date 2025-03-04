@@ -5,6 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Projectile
+      ignoreWeaponGrid: true
       damage:
         types:
           Caustic: 100
@@ -19,15 +20,17 @@
     - type: Ammo
       muzzleFlash: null
     - type: ShipWeaponProjectile
-    - type: Explosive
-      maxIntensity: 10
-      intensitySlope: 5
-      totalIntensity: 10
-      maxTileBreak: 3
     - type: RadarBlip
-      scale: 0.5
+      scale: 1.25
       requireNoGrid: true
     - type: TimedDespawn
       lifetime: 60
     - type: PointLight
       color: "#FB00FF"
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Default
+      maxIntensity: 6
+      intensitySlope: 4
+      totalIntensity: 4
+      maxTileBreak: 1
