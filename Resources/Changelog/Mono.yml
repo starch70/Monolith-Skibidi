@@ -239,3 +239,9 @@ Entries:
       message: Fixed blip bugs!
   id: 35
   time: '2025-03-04T17:50:57.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Added ship shields!
+  id: 36
+  time: '2025-03-04T17:52:39.0000000+00:00'
