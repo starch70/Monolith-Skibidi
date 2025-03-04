@@ -19,6 +19,11 @@
     - type: Ammo
       muzzleFlash: null
     - type: ShipWeaponProjectile
+    - type: Explosive
+      maxIntensity: 10
+      intensitySlope: 5
+      totalIntensity: 10
+      maxTileBreak: 3
     - type: RadarBlip
       scale: 0.5
       requireNoGrid: true
