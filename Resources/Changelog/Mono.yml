@@ -231,3 +231,11 @@ Entries:
       message: Abductor walls are now properly destructible
   id: 34
   time: '2025-03-03T00:45:04.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Added blip shapes!
+    - type: Fix
+      message: Fixed blip bugs!
+  id: 35
+  time: '2025-03-04T17:50:57.0000000+00:00'
