@@ -254,3 +254,9 @@ Entries:
         turrets now have a powerful explosion on impact.
   id: 37
   time: '2025-03-05T00:50:16.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Added FTL drive.
+  id: 38
+  time: '2025-03-05T02:07:30.0000000+00:00'
