@@ -1,7 +1,7 @@
 - type: entity
   id: ShipMediumPlasmaProjectile
   name: plasma projectile
-  parent: BaseBullet
+  parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
     - type: Projectile
@@ -20,9 +20,16 @@
       muzzleFlash: null
     - type: ShipWeaponProjectile
     - type: RadarBlip
-      scale: 0.5
+      scale: 1.25
       requireNoGrid: true
     - type: TimedDespawn
       lifetime: 60
     - type: PointLight
       color: "#FB00FF"
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Cryo
+      maxIntensity: 120
+      intensitySlope: 3
+      totalIntensity: 40
+      maxTileBreak: 1
