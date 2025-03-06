@@ -1,0 +1,24 @@
+- type: entity
+  id: RandomHumanoidAbductorWarriorSpawner
+  name: abductor warrior
+  suffix: abductor
+  components:
+    - type: Sprite
+      sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: AbductorWarrior
+
+- type: randomHumanoidSettings
+  id: AbductorWarrior
+  name: alien warrior
+  parent: MobAbductor
+  components:
+    - type: GhostRole
+      name: ghost-role-information-alien-warrior-name
+      description: ghost-role-information-alien-warrior-description
+      rules: ghost-role-information-alien-warrior-rules
+      raffle:
+        settings: short
+    - type: Loadout
+      prototypes: [ AbductorWarriorGear ]

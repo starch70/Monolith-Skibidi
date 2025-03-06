@@ -1,0 +1,12 @@
+- type: startingGear
+  id: AbductorWarriorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNinja
+    back: ClothingBackpackPerogeeFilled
+    mask: ClothingMaskGasSecurity
+    ears: ClothingHeadsetAltAbductor
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitSphelakPattern
+    suitstorage: OxygenTankFilled
+    shoes: ClothingShoesBootsMagAdv
+    belt: ClothingBeltMilitaryLeskalaFilled

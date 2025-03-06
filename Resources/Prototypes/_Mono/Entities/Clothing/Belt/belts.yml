@@ -14,3 +14,14 @@
     maxItemSize: Large
     grid:
       - 0,0,6,2
+
+- type: entity
+  parent: ClothingBeltMilitaryLeskala
+  id: ClothingBeltMilitaryLeskalaFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedkitCombatFilled
+      - id: ExGrenade
+      - id: ExGrenade
