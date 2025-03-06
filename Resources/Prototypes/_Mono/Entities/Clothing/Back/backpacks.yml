@@ -19,6 +19,8 @@
   prefix: Filled
   description: Despite the name and looks, its just a normal backpack. Dissapointing.
   components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Back/Backpacks/advanced.rsi
   - type: StorageFill
     contents:
       - id: WeaponRifleEsokoPattern

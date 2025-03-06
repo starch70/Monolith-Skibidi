@@ -1,5 +1,5 @@
 - type: entity
-  id: AbductorWarrior
+  id: MobAbductorWarrior
   name: alien warrior
   parent: MobAbductor
   components:
@@ -10,4 +10,5 @@
       raffle:
         settings: short
     - type: Loadout
-      prototypes: AbductorWarriorGear
+      prototypes:
+        - AbductorWarriorGear
