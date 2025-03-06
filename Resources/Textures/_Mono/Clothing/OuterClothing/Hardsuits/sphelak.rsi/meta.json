@@ -19,11 +19,11 @@
             "directions": 4
         },
         {
-            "name": "equipped-OUTERCLOTHING-lamia",
+            "name": "inhand-left",
             "directions": 4
         },
         {
-            "name": "inhand-left",
+            "name": "inhand-right",
             "directions": 4
         }
     ]
