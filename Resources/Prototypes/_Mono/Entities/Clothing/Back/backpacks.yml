@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingBackpack
-  id: ClothingBackpackT57
-  name: type-57 backpack
+  id: ClothingBackpackPerogee
+  name: perogee-pattern backpack
   description: Despite the name and looks, its just a normal backpack. Dissapointing.
   components:
   - type: Sprite

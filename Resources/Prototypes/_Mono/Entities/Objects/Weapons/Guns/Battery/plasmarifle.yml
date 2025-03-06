@@ -33,9 +33,9 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
 
 - type: entity
-  name: AKX-type plasma rifle
+  name: esoko-pattern plasma rifle
   parent: [BaseWeaponBatteryNoMagVis, BaseGunWieldable]
-  id: WeaponAKXPlasmaRifle
+  id: WeaponRifleEsokoPattern
   description: A weapon that launches magnetically contained plasma projectiles at enemies. A highly valuable trophy of war if found.
   components:
   - type: Sprite
@@ -71,4 +71,4 @@
     price: 1750
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 10
+    autoRechargeRate: 15

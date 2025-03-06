@@ -43,10 +43,10 @@
     - type: Projectile
       damage:
         types:
-          Caustic: 10
+          Caustic: 5
           Structural: 5
+          Blunt: 10
           Heat: 30
-          Radiation: 5
           Ion: 25
     - type: Sprite
       sprite: _Mono/Objects/Weapons/Projectiles/plasmashot.rsi
