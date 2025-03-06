@@ -62,10 +62,13 @@
     - Burst
     - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+      path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: LightPlasmaProjectile
     fireCost: 25
   - type: Appearance
   - type: StaticPrice
     price: 1750
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
