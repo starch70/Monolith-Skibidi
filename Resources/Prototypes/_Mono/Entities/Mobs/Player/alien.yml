@@ -1,15 +1,4 @@
 - type: entity
-  id: RandomHumanoidAbductorWarriorSpawner
-  name: abductor warrior
-  suffix: abductor
-  components:
-    - type: Sprite
-      sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
-      state: full
-    - type: RandomHumanoidSpawner
-      settings: AbductorWarrior
-
-- type: randomHumanoidSettings
   id: AbductorWarrior
   name: alien warrior
   parent: MobAbductor
@@ -21,4 +10,4 @@
       raffle:
         settings: short
     - type: Loadout
-      prototypes: [ AbductorWarriorGear ]
+      prototypes: AbductorWarriorGear
