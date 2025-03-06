@@ -71,6 +71,19 @@
   id: MobObserver
   components:
   - type: Spectral
+  - type: IntrinsicUI # Mono
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionAGhostShowRadar
+  - type: RadarConsole # Mono
+    followEntity: true
+    maxRange: 512
+  - type: UserInterface # Mono
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: Ghost # Mono
+    canInteract: true
 
 - type: entity
   id: ActionGhostBoo

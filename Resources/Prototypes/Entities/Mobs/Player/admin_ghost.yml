@@ -71,6 +71,7 @@
     color: "#228b22"
   - type: RadarConsole
     followEntity: true
+    maxRange: 512 # Mono
   - type: CargoOrderConsole
   - type: BankClient
   - type: CrewMonitoringConsole

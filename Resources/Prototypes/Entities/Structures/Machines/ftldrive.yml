@@ -2,7 +2,7 @@
   id: MachineFTLDrive
   parent: BaseMachinePowered
   name: FTL Drive
-  description: A FTL drive that enhances a ship's FTL range.
+  description: A ship drive that enhances a ship's FTL range.
   placement:
     mode: SnapgridCenter
   components:
