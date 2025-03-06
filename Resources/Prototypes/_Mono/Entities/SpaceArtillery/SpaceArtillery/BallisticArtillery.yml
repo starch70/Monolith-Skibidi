@@ -116,12 +116,12 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 0.75
-    projectileSpeed: 85
+    fireRate: 0.15
+    projectileSpeed: 45
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
     soundEmpty:
-      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+      path: /Audio/Weapons/Guns/EmptyAlarm/lmg_empty_alarm.ogg
   - type: SpaceArtillery
     powerChargeRate: 250
     powerUsePassive: 200

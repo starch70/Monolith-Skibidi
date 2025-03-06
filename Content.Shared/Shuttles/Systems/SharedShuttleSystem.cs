@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Ships;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.UI.MapObjects;
@@ -18,7 +19,7 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem XformSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
-    public const float FTLRange = 256f;
+    public const float FTLRange = 64f;
     public const float FTLBufferRange = 8f;
 
     private EntityQuery<MapGridComponent> _gridQuery;
@@ -154,7 +155,24 @@ public abstract partial class SharedShuttleSystem : EntitySystem
         return HasComp<MapComponent>(coordinates.EntityId);
     }
 
-    public float GetFTLRange(EntityUid shuttleUid) => FTLRange;
+    public float GetFTLRange(EntityUid shuttleUid)
+    {
+        // Look for any powered FTL drives on the shuttle's grid
+        // FTL drive is now optional and only enhances range if present
+        var query = AllEntityQuery<FTLDriveComponent>();
+
+        while (query.MoveNext(out var driveUid, out var drive))
+        {
+            if (TryComp<TransformComponent>(driveUid, out var transform) && transform.GridUid == shuttleUid)
+            {
+                if (drive.Powered)
+                    return drive.Range;
+            }
+        }
+
+        // Always provide a default range, even without an FTL drive
+        return FTLRange;
+    }
 
     public float GetFTLBufferRange(EntityUid shuttleUid, MapGridComponent? grid = null)
     {
@@ -188,7 +206,7 @@ public abstract partial class SharedShuttleSystem : EntitySystem
         var targetPosition = mapCoordinates.Position;
 
         // Check range even if it's cross-map.
-        if ((targetPosition - ourPos).Length() > FTLRange)
+        if ((targetPosition - ourPos).Length() > GetFTLRange(shuttleUid))
         {
             return false;
         }
