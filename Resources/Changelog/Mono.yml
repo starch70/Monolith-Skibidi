@@ -272,3 +272,9 @@ Entries:
       message: Added ship designations.
   id: 40
   time: '2025-03-07T05:47:51.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Remove
+      message: Removed docked FTL. Plan to redo it.
+  id: 41
+  time: '2025-03-07T06:10:20.0000000+00:00'
