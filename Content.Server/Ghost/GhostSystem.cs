@@ -2,6 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
+using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
@@ -65,6 +66,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly DamageableSystem _damageable = default!;
         [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!;
         [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
+        [Dependency] private readonly IAdminManager _adminManager = default!;
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -513,6 +515,10 @@ namespace Content.Server.Ghost
             if (!_mind.TryGetSession(mindId, out var session))
                 return;
 
+            // Only apply admin OOC color if the player is actually an admin
+            if (!_adminManager.IsAdmin(session))
+                return;
+
             if (!_preferencesManager.TryGetCachedPreferences(session.UserId, out var prefs))
                 return;
 
@@ -522,7 +528,6 @@ namespace Content.Server.Ghost
                 
             // Make the color slightly transparent for ghosts
             var ghostColor = prefs.AdminOOCColor;
-            ghostColor.A = 0.8f;
             
             if (TryComp<GhostComponent>(ghostEntity, out var ghostComp))
             {
