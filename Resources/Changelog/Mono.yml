@@ -260,3 +260,9 @@ Entries:
       message: Added FTL drive.
   id: 38
   time: '2025-03-05T02:07:30.0000000+00:00'
+- author: Ark
+  changes:
+    - type: Add
+      message: Ship impacts now knock you down while unbuckled.
+  id: 39
+  time: '2025-03-07T02:20:45.0000000+00:00'
