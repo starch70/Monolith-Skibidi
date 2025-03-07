@@ -1,0 +1,35 @@
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSphelakPattern
+  name: sphelak-pattern tacsuit
+  description: A tacsuit built with a nanolaminate hybrid material, reinforced underneath with a non-newtonian gel layer.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/sphelak.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/sphelak.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.06
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.3
+    coolingCoefficient: 0.3
+  - type: ExplosionResistance
+    damageCoefficient: 0.45
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.2
+        Slash: 0.2
+        Piercing: 0.2
+        Heat: 0.2
+        Cold: 0.35
+        Radiation: 0.05
+        Caustic: 0.2
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes: 
+      head: ClothingHeadHelmetHardsuitSphelakPattern

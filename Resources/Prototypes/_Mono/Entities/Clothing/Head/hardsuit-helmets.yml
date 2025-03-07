@@ -1,0 +1,38 @@
+- type: entity
+  parent: [ClothingHeadHardsuitWithLightBase, ShowMedicalIcons, ShowSecurityIcons]
+  id: ClothingHeadHelmetHardsuitSphelakPattern
+  name: sphelak-pattern tacsuit helmet
+  description: Nanolaminate reinforced, with multiple sensors installed.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/sphelak.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/sphelak.rsi
+  - type: PointLight
+    color: "#FF1774"
+    rotation: 30
+    energy: 10
+    radius: 5
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: EyeProtection
+  - type: NightVision
+    flashDurationMultiplier: 1.2
+    isEquipment: true
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.75
+        Cold: 0.75
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+    protectionRange: 1

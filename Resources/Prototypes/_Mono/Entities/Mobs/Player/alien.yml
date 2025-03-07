@@ -1,0 +1,14 @@
+- type: entity
+  id: MobAbductorWarrior
+  name: alien warrior
+  parent: MobAbductor
+  components:
+    - type: GhostRole
+      name: ghost-role-information-alien-warrior-name
+      description: ghost-role-information-alien-warrior-description
+      rules: ghost-role-information-alien-warrior-rules
+      raffle:
+        settings: short
+    - type: Loadout
+      prototypes:
+        - AbductorWarriorGear

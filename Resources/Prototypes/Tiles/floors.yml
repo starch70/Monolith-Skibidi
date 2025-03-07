@@ -652,8 +652,8 @@
   id: FloorReinforced
   name: tiles-reinforced-floor
   sprite: /Textures/Tiles/reinforced.png
-  baseTurf: Plating
-  isSubfloor: false
+  baseTurf: Lattice # Mono
+  isSubfloor: true # Mono
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepHull

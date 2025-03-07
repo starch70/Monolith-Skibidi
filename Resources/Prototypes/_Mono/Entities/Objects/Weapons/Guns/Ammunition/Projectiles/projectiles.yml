@@ -34,3 +34,26 @@
       intensitySlope: 3
       totalIntensity: 40
       maxTileBreak: 1
+
+- type: entity
+  id: LightPlasmaProjectile
+  name: plasma projectile
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Projectile
+      damage:
+        types:
+          Caustic: 5
+          Structural: 5
+          Blunt: 10
+          Heat: 30
+          Ion: 25
+    - type: Sprite
+      sprite: _Mono/Objects/Weapons/Projectiles/plasmashot.rsi
+      layers:
+        - state: plasmashot
+    - type: Ammo
+      muzzleFlash: null
+    - type: PointLight
+      color: "#FB00FF"

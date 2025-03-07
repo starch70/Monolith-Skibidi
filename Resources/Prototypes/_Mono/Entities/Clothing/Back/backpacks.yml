@@ -1,0 +1,28 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackPerogee
+  name: perogee-pattern backpack
+  description: Despite the name and looks, its just a normal backpack. Dissapointing.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Back/Backpacks/advanced.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,8,4
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackPerogeeFilled
+  name: perogee-pattern backpack
+  suffix: Filled
+  description: Despite the name and looks, its just a normal backpack. Dissapointing.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Back/Backpacks/advanced.rsi
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleEsokoPattern
+      - id: MultitoolAbductor
+      - id: CrowbarAbductor
