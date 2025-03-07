@@ -35,6 +35,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Server.Preferences.Managers;
 
 namespace Content.Server.Ghost
 {
@@ -63,6 +64,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly GameTicker _gameTicker = default!;
         [Dependency] private readonly DamageableSystem _damageable = default!;
         [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!;
+        [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -97,6 +99,8 @@ namespace Content.Server.Ghost
 
             SubscribeLocalEvent<RoundEndTextAppendEvent>(_ => MakeVisible(true));
             SubscribeLocalEvent<ToggleGhostVisibilityToAllEvent>(OnToggleGhostVisibilityToAll);
+
+            SubscribeLocalEvent<GhostComponent, MindAddedMessage>(OnMindAdded);
         }
 
         private void OnGhostHearingAction(EntityUid uid, GhostComponent component, ToggleGhostHearingActionEvent args)
@@ -419,6 +423,9 @@ namespace Content.Server.Ghost
         public EntityUid? SpawnGhost(Entity<MindComponent?> mind, EntityUid targetEntity,
             bool canReturn = false)
         {
+            if (!Transform(targetEntity).Coordinates.IsValid(EntityManager))
+                return null;
+                
             _transformSystem.TryGetMapOrGridCoordinates(targetEntity, out var spawnPosition);
             return SpawnGhost(mind, spawnPosition, canReturn);
         }
@@ -462,6 +469,10 @@ namespace Content.Server.Ghost
                 return null;
             }
 
+            // Ensure spawnPosition is not null before passing to SpawnAtPosition
+            if (spawnPosition == null)
+                return null;
+                
             var ghost = SpawnAtPosition(GameTicker.ObserverPrototypeName, spawnPosition.Value);
             var ghostComponent = Comp<GhostComponent>(ghost);
 
@@ -475,7 +486,7 @@ namespace Content.Server.Ghost
 
             if (mind.Comp.TimeOfDeath.HasValue)
             {
-                SetTimeOfDeath(ghost, mind.Comp.TimeOfDeath!.Value, ghostComponent);
+                SetTimeOfDeath(ghost, mind.Comp.TimeOfDeath.Value, ghostComponent);
             }
 
             SetCanReturnToBody(ghostComponent, canReturn);
@@ -485,7 +496,49 @@ namespace Content.Server.Ghost
             else
                 _minds.TransferTo(mind.Owner, ghost, mind: mind.Comp);
             Log.Debug($"Spawned ghost \"{ToPrettyString(ghost)}\" for {mind.Comp.CharacterName}.");
+
+            // Apply admin OOC color to the ghost if the player has one
+            ApplyAdminOOCColor(ghost, mind.Owner);
+
             return ghost;
+        }
+
+        /// <summary>
+        /// Applies the admin OOC color to a ghost entity if the player has one set
+        /// </summary>
+        /// <param name="ghostEntity">The ghost entity to apply the color to</param>
+        /// <param name="mindId">The mind ID of the player</param>
+        public void ApplyAdminOOCColor(EntityUid ghostEntity, EntityUid mindId)
+        {
+            if (!_mind.TryGetSession(mindId, out var session))
+                return;
+
+            if (!_preferencesManager.TryGetCachedPreferences(session.UserId, out var prefs))
+                return;
+
+            // Only apply the color if it's not transparent (the default)
+            if (prefs.AdminOOCColor == Color.Transparent)
+                return;
+                
+            // Make the color slightly transparent for ghosts
+            var ghostColor = prefs.AdminOOCColor;
+            ghostColor.A = 0.8f;
+            
+            if (TryComp<GhostComponent>(ghostEntity, out var ghostComp))
+            {
+                ghostComp.color = ghostColor;
+                Dirty(ghostEntity, ghostComp);
+            }
+        }
+
+        private void OnMindAdded(EntityUid uid, GhostComponent component, MindAddedMessage args)
+        {
+            // When a mind is added to a ghost, check if the player has an admin OOC color
+            // and apply it to the ghost if they do
+            if (args.Mind == default)
+                return;
+                
+            ApplyAdminOOCColor(uid, args.Mind);
         }
 
         public bool OnGhostAttempt(EntityUid mindId, bool canReturnGlobal, bool viaCommand = false, MindComponent? mind = null)
@@ -516,7 +569,7 @@ namespace Content.Server.Ghost
                 return false;
             }
 
-            if (TryComp<GhostComponent>(playerEntity, out var comp) && !comp.CanGhostInteract)
+            if (playerEntity != null && TryComp<GhostComponent>(playerEntity.Value, out var comp) && !comp.CanGhostInteract)
                 return false;
 
             if (mind.VisitingEntity != default)
@@ -524,7 +577,7 @@ namespace Content.Server.Ghost
                 _mind.UnVisit(mindId, mind: mind);
             }
 
-            var position = Exists(playerEntity)
+            var position = playerEntity != null
                 ? Transform(playerEntity.Value).Coordinates
                 : _gameTicker.GetObserverSpawnPoint();
 
@@ -543,7 +596,8 @@ namespace Content.Server.Ghost
 
             if (_configurationManager.GetCVar(CCVars.GhostKillCrit) &&
                 canReturnGlobal &&
-                TryComp(playerEntity, out MobStateComponent? mobState))
+                playerEntity != null &&
+                TryComp(playerEntity.Value, out MobStateComponent? mobState))
             {
                 if (_mobState.IsCritical(playerEntity.Value, mobState))
                 {
@@ -554,8 +608,8 @@ namespace Content.Server.Ghost
 
                     FixedPoint2 dealtDamage = 200;
 
-                    if (TryComp<DamageableComponent>(playerEntity, out var damageable)
-                        && TryComp<MobThresholdsComponent>(playerEntity, out var thresholds))
+                    if (TryComp<DamageableComponent>(playerEntity.Value, out var damageable)
+                        && TryComp<MobThresholdsComponent>(playerEntity.Value, out var thresholds))
                     {
                         var playerDeadThreshold = _mobThresholdSystem.GetThresholdForState(playerEntity.Value, MobState.Dead, thresholds);
                         dealtDamage = playerDeadThreshold - damageable.TotalDamage;
@@ -563,7 +617,7 @@ namespace Content.Server.Ghost
 
                     DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>("Asphyxiation"), dealtDamage);
 
-                    _damageable.TryChangeDamage(playerEntity, damage, true);
+                    _damageable.TryChangeDamage(playerEntity.Value, damage, true);
                 }
             }
 
