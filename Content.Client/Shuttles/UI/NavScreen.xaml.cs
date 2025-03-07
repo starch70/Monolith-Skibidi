@@ -6,6 +6,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
+using Content.Shared.Shuttles.Components;
 
 namespace Content.Client.Shuttles.UI;
 
@@ -34,6 +35,7 @@ public sealed partial class NavScreen : BoxContainer
     public void SetShuttle(EntityUid? shuttle)
     {
         _shuttleEntity = shuttle;
+        UpdateShipDesignation();
     }
 
     public void SetConsole(EntityUid? console)
@@ -57,12 +59,46 @@ public sealed partial class NavScreen : BoxContainer
     public void UpdateState(NavInterfaceState scc)
     {
         NavRadar.UpdateState(scc);
+        
+        // Use the ship designation from the state if available
+        if (!string.IsNullOrEmpty(scc.ShipDesignation))
+        {
+            ShipDesignation.Text = scc.ShipDesignation;
+        }
+        else
+        {
+            // Fallback to getting designation from the entity if it exists
+            UpdateShipDesignation();
+        }
     }
 
     public void SetMatrix(EntityCoordinates? coordinates, Angle? angle)
     {
         _shuttleEntity = coordinates?.EntityId;
         NavRadar.SetMatrix(coordinates, angle);
+        UpdateShipDesignation();
+    }
+    
+    /// <summary>
+    /// Updates the ship designation display with data from the shuttle entity
+    /// </summary>
+    private void UpdateShipDesignation()
+    {
+        if (_shuttleEntity == null || !_entManager.EntityExists(_shuttleEntity.Value))
+        {
+            ShipDesignation.Text = Loc.GetString("shuttle-console-designation-unknown");
+            return;
+        }
+        
+        if (_entManager.TryGetComponent<ShipDesignationComponent>(_shuttleEntity.Value, out var designationComp) && 
+            !string.IsNullOrEmpty(designationComp.Designation))
+        {
+            ShipDesignation.Text = designationComp.Designation;
+        }
+        else
+        {
+            ShipDesignation.Text = Loc.GetString("shuttle-console-designation-none");
+        }
     }
 
     protected override void Draw(DrawingHandleScreen handle)

@@ -337,6 +337,7 @@ entities:
     - type: GasTileOverlay
     - type: IFF
       flags: HideLabel
+    - type: ShipDesignation
     - type: RadiationGridResistance
 - proto: AirlockHatch
   entities:

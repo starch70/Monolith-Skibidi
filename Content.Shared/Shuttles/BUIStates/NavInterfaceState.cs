@@ -21,17 +21,24 @@ public sealed class NavInterfaceState
     public Dictionary<NetEntity, List<DockingPortState>> Docks;
 
     public bool RotateWithEntity = true;
+    
+    /// <summary>
+    /// The ship designation if one exists.
+    /// </summary>
+    public string? ShipDesignation;
 
     public NavInterfaceState(
         float maxRange,
         NetCoordinates? coordinates,
         Angle? angle,
-        Dictionary<NetEntity, List<DockingPortState>> docks)
+        Dictionary<NetEntity, List<DockingPortState>> docks,
+        string? shipDesignation = null)
     {
         MaxRange = maxRange;
         Coordinates = coordinates;
         Angle = angle;
         Docks = docks;
+        ShipDesignation = shipDesignation;
     }
 }
 

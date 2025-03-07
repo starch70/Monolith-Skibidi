@@ -150,6 +150,10 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     {
         if (!TryPilot(args.User, uid))
             args.Cancel();
+
+        // Refresh the console state when opened to ensure ship designation is up-to-date
+        DockingInterfaceState? dockState = null;
+        UpdateState(uid, ref dockState);
     }
 
     private void OnConsoleAnchorChange(EntityUid uid, ShuttleConsoleComponent component,
@@ -265,7 +269,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         }
         else
         {
-            navState = new NavInterfaceState(0f, null, null, new Dictionary<NetEntity, List<DockingPortState>>());
+            navState = new NavInterfaceState(0f, null, null, new Dictionary<NetEntity, List<DockingPortState>>(), null);
             mapState = new ShuttleMapInterfaceState(
                 FTLState.Invalid,
                 default,
@@ -398,11 +402,20 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2))
             return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, GetNetCoordinates(coordinates), angle, docks);
 
+        // Get the ship designation if available
+        string? shipDesignation = null;
+        if (entity.Comp2.GridUid != null &&
+            TryComp<ShipDesignationComponent>(entity.Comp2.GridUid, out var designationComp))
+        {
+            shipDesignation = designationComp.Designation;
+        }
+
         return new NavInterfaceState(
             entity.Comp1.MaxRange,
             GetNetCoordinates(coordinates),
             angle,
-            docks);
+            docks,
+            shipDesignation);
     }
 
     /// <summary>

@@ -26,6 +26,12 @@ public sealed class ShuttleConsoleBoundUserInterface : BoundUserInterface
         _window.RequestBeaconFTL += OnFTLBeaconRequest;
         _window.DockRequest += OnDockRequest;
         _window.UndockRequest += OnUndockRequest;
+        
+        // Ensure ship designation is refreshed when console is opened
+        if (State is ShuttleBoundUserInterfaceState currentState)
+        {
+            _window.UpdateState(Owner, currentState);
+        }
     }
 
     private void OnUndockRequest(NetEntity entity)

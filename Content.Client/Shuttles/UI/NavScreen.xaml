@@ -65,5 +65,15 @@
                             Text="{controls:Loc 'shuttle-console-dock-toggle'}"
                             TextAlign="Center"
                             ToggleMode="True"/>
+                    <controls1:StripeBack
+                        MinSize="48 48">
+                        <controls:Label Name="ShipDesignationLabel" Text="{controls:Loc 'shuttle-console-designation-label'}"
+                               VerticalExpand="True"
+                               HorizontalAlignment="Center"/>
+                    </controls1:StripeBack>
+                    <controls:Label Name="ShipDesignation"
+                           Text="{controls:Loc 'shuttle-console-designation-unknown'}"
+                           HorizontalAlignment="Center"
+                           Margin="0 5 0 10"/>
                 </controls:BoxContainer>
             </controls:BoxContainer>

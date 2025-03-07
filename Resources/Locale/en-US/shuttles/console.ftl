@@ -13,16 +13,16 @@ shuttle-console-display-label = Display
 
 shuttle-console-position = Position:
 shuttle-console-orientation = Orientation:
-shuttle-console-linear-velocity = Linear velocity:
-shuttle-console-angular-velocity = Angular velocity:
+shuttle-console-linear-velocity = Linear Velocity:
+shuttle-console-angular-velocity = Angular Velocity:
 
 shuttle-console-unknown = Unknown
 shuttle-console-iff-label = {$name} ({$distance}m)
-shuttle-console-exclusion = Exclusion area
+shuttle-console-exclusion = Exclusion Area
 
 shuttle-console-nav-settings = Settings
 shuttle-console-iff-toggle = Show IFF
-shuttle-console-dock-toggle = Show docks
+shuttle-console-dock-toggle = Show Docks
 
 # MAP
 
@@ -36,20 +36,26 @@ shuttle-console-ftl-state-Invalid = Invalid
 
 shuttle-console-map-settings = Settings
 shuttle-console-ftl-button = FTL
-shuttle-console-map-rebuild = Scan for objects
-shuttle-console-map-beacons = Show beacons
+shuttle-console-map-rebuild = Scan
+shuttle-console-map-beacons = Show Beacons
 
-shuttle-console-no-signal = No signal
+shuttle-console-no-signal = No Signal
 
-shuttle-console-map-objects = Sector objects
+shuttle-console-map-objects = Sector Objects
 
 # DOCK
-shuttle-console-docked = Docked objects
+shuttle-console-docked = Docked Objects
 
 shuttle-console-view = View
 shuttle-console-undock = Undock
 shuttle-console-dock = Dock
 shuttle-console-docks-label = Docks
 
-shuttle-console-undock-fail = Undocking failed
-shuttle-console-dock-fail = Docking failed
+shuttle-console-undock-fail = Undocking Failed
+shuttle-console-dock-fail = Docking Failed
+
+# DESIGNATION
+# Mono
+shuttle-console-designation-label = Ship Designation
+shuttle-console-designation-unknown = Unknown
+shuttle-console-designation-none = No Designation
