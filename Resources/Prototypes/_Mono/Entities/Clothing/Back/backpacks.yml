@@ -16,7 +16,7 @@
   parent: ClothingBackpack
   id: ClothingBackpackPerogeeFilled
   name: perogee-pattern backpack
-  prefix: Filled
+  suffix: Filled
   description: Despite the name and looks, its just a normal backpack. Dissapointing.
   components:
   - type: Sprite
