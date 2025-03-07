@@ -12,3 +12,4 @@
     - type: Loadout
       prototypes:
         - AbductorWarriorGear
+    - type: GhostTakeoverAvailable
