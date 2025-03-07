@@ -2,7 +2,7 @@
   id: FloorAbductor
   name: abductor floor # Mono
   sprite: /Textures/_Shitmed/Tiles/abductor_tile.png
-  baseTurf: Lattice # mono
+  baseTurf: Lattice # Mono
   isSubfloor: false # Mono
   # Mono - Fireaxe plating prying
   deconstructTools: [ Axing ]
@@ -12,4 +12,4 @@
   heatCapacity: 10000
  # weather: true # Mono
  # indestructible: true # Mono
-  reinforced: true # mono
+  reinforced: true # Mono
