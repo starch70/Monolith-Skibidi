@@ -284,3 +284,11 @@ Entries:
       message: Ported over Lavaland from Goob.
   id: 42
   time: '2025-03-07T06:51:40.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: Armor vests now have insulation
+    - type: Fix
+      message: Fixed minor problems with CFL
+  id: 43
+  time: '2025-03-07T20:01:50.0000000+00:00'
