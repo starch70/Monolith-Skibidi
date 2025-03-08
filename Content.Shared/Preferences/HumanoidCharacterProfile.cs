@@ -444,6 +444,13 @@ namespace Content.Shared.Preferences
                     continue;
                 }
 
+                // Check if the trait is species-restricted - if so, count it as zero points
+                if (otherProto.SpeciesRestrictions != null && 
+                    otherProto.SpeciesRestrictions.Contains(Species))
+                {
+                    continue; // Skip adding this trait's cost to the total
+                }
+
                 count += otherProto.Cost;
             }
 
@@ -713,7 +720,13 @@ namespace Content.Shared.Preferences
                     continue;
 
                 var existing = groups.GetOrNew(category.ID);
-                existing += traitProto.Cost;
+                
+                // If trait is species-restricted, don't add to the point total
+                if (traitProto.SpeciesRestrictions == null || 
+                    !traitProto.SpeciesRestrictions.Contains(Species))
+                {
+                    existing += traitProto.Cost;
+                }
 
                 // Too expensive.
                 if (existing > category.MaxTraitPoints)

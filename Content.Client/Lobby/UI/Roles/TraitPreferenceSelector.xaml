@@ -1,8 +1,10 @@
 <Control xmlns="https://spacestation14.io">
     <PanelContainer StyleClasses="TraitBackground">
-        <BoxContainer Name="Container" Orientation="Horizontal" Margin="4,2">
-            <CheckBox Name="Checkbox" Access="Public" MinSize="32 32"/>
-            <Label Name="CostLabel" StyleClasses="TraitCost" Margin="8,0,0,0"/>
+        <BoxContainer Name="Container" Orientation="Horizontal" Margin="0">
+            <Label Name="CostLabel" StyleClasses="TraitCost" MinSize="30 0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4,0"/>
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="4,4" VerticalAlignment="Center">
+                <CheckBox Name="Checkbox" Access="Public" MinSize="32 32"/>
+            </BoxContainer>
         </BoxContainer>
     </PanelContainer>
 </Control>

@@ -95,9 +95,14 @@ namespace Content.Client.Lobby.UI
         private ColorSelectorSliders _rgbSkinColorSelector;
 
         private bool _isDirty;
+        private bool _showUnusableTraits = false; // Default to showing all traits
+        private int _unusableTraitsCount = 0;
+
+        private ProgressBar? _traitsProgressBar;
+        private Label? _traitsPointsLabel;
 
         [ValidatePrototypeId<GuideEntryPrototype>]
-        private const string DefaultSpeciesGuidebook = "Species";
+        private static readonly ProtoId<GuideEntryPrototype> _speciesGuideEntry = "Species";
 
         public event Action<List<ProtoId<GuideEntryPrototype>>>? OnOpenGuidebook;
 
@@ -157,6 +162,18 @@ namespace Content.Client.Lobby.UI
             {
                 Save?.Invoke();
             };
+
+            // Setup expansion/collapse buttons
+            CollapseAllButton.OnPressed += _ => SetAllCategoriesExpanded(false);
+            ExpandAllButton.OnPressed += _ => SetAllCategoriesExpanded(true);
+
+            // Setup show/remove unusable traits buttons
+            ShowUnusableTraitsButton.OnPressed += _ => ToggleUnusableTraits();
+            RemoveUnusableTraitsButton.OnPressed += _ => RemoveUnusableTraits();
+
+            // Initialize toggle button state
+            ShowUnusableTraitsButton.Pressed = _showUnusableTraits;
+            UpdateRemoveUnusableTraitsButton();
 
             #region Left
 
@@ -492,6 +509,16 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         public void RefreshTraits()
         {
+            // Save the expansion state of existing categories
+            Dictionary<string, bool> expansionStates = new Dictionary<string, bool>();
+            foreach (var child in TraitsList.Children)
+            {
+                if (child is TraitCategorySelector selector)
+                {
+                    expansionStates[selector.CategoryId] = selector.IsExpanded;
+                }
+            }
+
             TraitsList.DisposeAllChildren();
 
             var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>()
@@ -531,39 +558,130 @@ namespace Content.Client.Lobby.UI
             }
 
             // Create UI view from model
+            Dictionary<string, TraitCategorySelector> categorySelectors = new();
+
+            // Process categories first
             foreach (var (categoryId, categoryTraits) in traitGroups)
             {
-                TraitCategoryPrototype? category = null;
+                // Skip empty categories
+                if (categoryTraits.Count == 0)
+                    continue;
 
-                if (categoryId != TraitCategoryPrototype.Default)
+                string categoryName;
+                int? maxTraitPoints = null;
+
+                if (categoryId == TraitCategoryPrototype.Default)
                 {
-                    category = _prototypeManager.Index<TraitCategoryPrototype>(categoryId);
-                    // Label
-                    TraitsList.AddChild(new Label
-                    {
-                        Text = Loc.GetString(category.Name),
-                        Margin = new Thickness(0, 10, 0, 0),
-                        StyleClasses = { StyleBase.StyleClassLabelHeading },
-                    });
+                    categoryName = Loc.GetString("humanoid-profile-editor-traits-default-category");
+                }
+                else
+                {
+                    var category = _prototypeManager.Index<TraitCategoryPrototype>(categoryId);
+                    categoryName = Loc.GetString(category.Name);
+                    maxTraitPoints = category.MaxTraitPoints;
                 }
 
-                List<TraitPreferenceSelector?> selectors = new();
-                var selectionCount = 0;
+                // Create the category selector
+                var categorySelector = new TraitCategorySelector(categoryId, categoryName, maxTraitPoints);
+
+                // Restore the expansion state if it exists
+                if (expansionStates.TryGetValue(categoryId, out var isExpanded))
+                {
+                    categorySelector.IsExpanded = isExpanded;
+                }
+
+                categorySelectors[categoryId] = categorySelector;
+                TraitsList.AddChild(categorySelector);
+
+                // Add progress bar for categories that have max points
+                if (maxTraitPoints.HasValue && maxTraitPoints.Value > 0)
+                {
+                    // Calculate total points used in this category
+                    int categoryPointsUsed = 0;
+                    int categoryTraitsCount = 0;
+
+                    if (Profile?.TraitPreferences != null)
+                    {
+                        foreach (var traitId in Profile.TraitPreferences)
+                        {
+                            if (_prototypeManager.TryIndex<TraitPrototype>(traitId, out var trait) &&
+                                trait.Category == categoryId)
+                            {
+                                categoryPointsUsed += trait.Cost;
+                                categoryTraitsCount++;
+                            }
+                        }
+                    }
+
+                    // Create a container for just the progress bar
+                    var progressContainer = new BoxContainer
+                    {
+                        Orientation = BoxContainer.LayoutOrientation.Vertical,
+                        HorizontalExpand = true,
+                        Margin = new Thickness(0, 0, 0, 5),
+                    };
+
+                    // Create progress bar - no label anymore
+                    var progressBar = new ProgressBar
+                    {
+                        MinValue = 0,
+                        MaxValue = maxTraitPoints.Value,
+                        Value = categoryPointsUsed,
+                        HorizontalExpand = true,
+                    };
+
+                    // Set the progress bar color based on value
+                    Color barColor;
+                    if (categoryPointsUsed <= (maxTraitPoints.Value * 0.7f) || categoryPointsUsed <= 0)
+                        barColor = Color.FromHex("#33CC33"); // Green
+                    else
+                        barColor = Color.FromHex("#CC3333"); // Red
+
+                    progressBar.ForegroundStyleBoxOverride = new StyleBoxFlat
+                    {
+                        BackgroundColor = barColor
+                    };
+
+                    // Add just the progress bar to the container (no label)
+                    progressContainer.AddChild(progressBar);
+
+                    // Add container to category
+                    categorySelector.AddProgressBar(progressContainer);
+                }
+            }
+
+            // Now add traits to their categories
+            foreach (var (categoryId, categoryTraits) in traitGroups)
+            {
+                // Skip empty categories
+                if (categoryTraits.Count == 0 || !categorySelectors.TryGetValue(categoryId, out var categorySelector))
+                    continue;
 
                 foreach (var traitProto in categoryTraits)
                 {
                     var trait = _prototypeManager.Index<TraitPrototype>(traitProto);
+
+                    // Skip traits that don't match the filter
+                    bool isUnusable = IsTraitUnusableForCurrentSpecies(trait);
+                    if (isUnusable && !_showUnusableTraits)
+                        continue;
+
+                    // Get the trait category prototype if it exists
+                    TraitCategoryPrototype? traitCategory = null;
+                    if (trait.Category != null)
+                    {
+                        _prototypeManager.TryIndex(trait.Category, out traitCategory);
+                    }
+
                     var selector = new TraitPreferenceSelector(
                         Loc.GetString(trait.Name),
                         trait.Cost,
                         trait.Description != null ? Loc.GetString(trait.Description) : null);
 
                     selector.Preference = Profile?.TraitPreferences.Contains(trait.ID) == true;
-                    if (selector.Preference)
-                        selectionCount += trait.Cost;
 
                     // Check species restrictions
-                    if (trait.SpeciesRestrictions != null && Profile?.Species != null && trait.SpeciesRestrictions.Contains<string>(Profile.Species))
+                    if (isUnusable)
                     {
                         selector.Checkbox.Disabled = true;
                         selector.Checkbox.Label.FontColorOverride = Color.Orange;
@@ -583,6 +701,43 @@ namespace Content.Client.Lobby.UI
                         selector.Checkbox.TooltipSupplier = _ => tooltip;
                         selector.Preference = false;
                     }
+                    // Check if selecting this trait would exceed the maximum points for this category
+                    else if (traitCategory?.MaxTraitPoints != null && traitCategory.MaxTraitPoints >= 0)
+                    {
+                        // Calculate total points that would be used if this trait was selected
+                        var totalPoints = 0;
+                        foreach (var existingTrait in Profile?.TraitPreferences ?? new HashSet<ProtoId<TraitPrototype>>())
+                        {
+                            if (_prototypeManager.TryIndex<TraitPrototype>(existingTrait, out var proto) &&
+                                proto.Category == trait.Category)
+                            {
+                                totalPoints += proto.Cost;
+                            }
+                        }
+
+                        // Add this trait's cost (only for positive cost traits)
+                        if (!selector.Preference && trait.Cost > 0 && totalPoints + trait.Cost > traitCategory.MaxTraitPoints)
+                        {
+                            // Would exceed maximum points, so mark it red
+                            selector.Checkbox.Label.FontColorOverride = Color.Red;
+
+                            // Add tooltip explaining why this trait can't be selected
+                            var tooltip = new PanelContainer
+                            {
+                                StyleClasses = { StyleNano.StyleClassTooltipPanel },
+                                Children =
+                                {
+                                    new Label
+                                    {
+                                        Text = Loc.GetString("humanoid-profile-editor-trait-points-exceeded"),
+                                        HorizontalAlignment = HAlignment.Center,
+                                        FontColorOverride = Color.FromHex("#C8C8C8")
+                                    }
+                                }
+                            };
+                            selector.Checkbox.TooltipSupplier = _ => tooltip;
+                        }
+                    }
 
                     selector.PreferenceChanged += preference =>
                     {
@@ -596,35 +751,145 @@ namespace Content.Client.Lobby.UI
                         }
 
                         SetDirty();
+                        UpdateRemoveUnusableTraitsButton();
                         RefreshTraits(); // If too many traits are selected, they will be reset to the real value.
                     };
-                    selectors.Add(selector);
-                }
 
-                // Selection counter
-                if (category is { MaxTraitPoints: >= 0 })
-                {
-                    TraitsList.AddChild(new Label
-                    {
-                        Text = Loc.GetString("humanoid-profile-editor-trait-count-hint", ("current", selectionCount), ("max", category.MaxTraitPoints)),
-                        FontColorOverride = Color.Gray
-                    });
-                }
-
-                foreach (var selector in selectors)
-                {
-                    if (selector == null)
-                        continue;
-
-                    if (category is { MaxTraitPoints: >= 0 } &&
-                        selector.Cost + selectionCount > category.MaxTraitPoints)
-                    {
-                        selector.Checkbox.Label.FontColorOverride = Color.Red;
-                    }
-
-                    TraitsList.AddChild(selector);
+                    // Add this trait to its category selector
+                    categorySelector.AddTrait(selector);
                 }
             }
+
+            // Update the unusable traits count after refreshing
+            UpdateRemoveUnusableTraitsButton();
+        }
+
+        /// <summary>
+        /// Checks if a trait is unusable for the current species due to species restrictions
+        /// </summary>
+        private bool IsTraitUnusableForCurrentSpecies(TraitPrototype trait)
+        {
+            // If the profile or species is null, or if there are no restrictions, trait is usable
+            if (Profile?.Species == null || trait.SpeciesRestrictions == null || trait.SpeciesRestrictions.Count == 0)
+                return false;
+
+            // Convert string species ID to a list of strings for comparison
+            var speciesId = Profile.Species;
+
+            // Check if the current species is in the restricted list (string comparison)
+            foreach (var restriction in trait.SpeciesRestrictions)
+            {
+                if (restriction == speciesId)
+                    return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Toggle showing unusable traits and updates the button text
+        /// </summary>
+        private void ToggleUnusableTraits()
+        {
+            _showUnusableTraits = !_showUnusableTraits;
+            ShowUnusableTraitsButton.Text = Loc.GetString(_showUnusableTraits
+                ? "humanoid-profile-editor-hide-unusable-traits"
+                : "humanoid-profile-editor-show-unusable-traits");
+            RefreshTraits(); // Refresh the traits list to apply the filter
+        }
+
+        /// <summary>
+        /// Update the remove unusable traits button text with the current count
+        /// </summary>
+        private void UpdateRemoveUnusableTraitsButton()
+        {
+            _unusableTraitsCount = CountUnusableSelectedTraits();
+            RemoveUnusableTraitsButton.Text = Loc.GetString("humanoid-profile-editor-remove-unusable-traits")
+                .Replace("0", _unusableTraitsCount.ToString());
+            RemoveUnusableTraitsButton.Disabled = _unusableTraitsCount == 0;
+        }
+
+        /// <summary>
+        /// Count how many selected traits are unusable for the current species
+        /// </summary>
+        private int CountUnusableSelectedTraits()
+        {
+            int count = 0;
+            // Use null conditional access to avoid NullReferenceException
+            if (Profile == null || Profile.TraitPreferences == null || string.IsNullOrEmpty(Profile.Species))
+                return 0;
+
+            foreach (var traitId in Profile.TraitPreferences)
+            {
+                if (_prototypeManager.TryIndex<TraitPrototype>(traitId, out var trait) &&
+                    IsTraitUnusableForCurrentSpecies(trait))
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        /// <summary>
+        /// Remove all traits that are unusable for the current species
+        /// </summary>
+        private void RemoveUnusableTraits()
+        {
+            // Use null conditional access to avoid NullReferenceException
+            if (Profile == null || Profile.TraitPreferences == null || string.IsNullOrEmpty(Profile.Species))
+                return;
+
+            // Create a new list of trait preferences that excludes species-restricted ones
+            HashSet<ProtoId<TraitPrototype>> newTraitPrefs = new();
+
+            foreach (var traitId in Profile.TraitPreferences)
+            {
+                if (_prototypeManager.TryIndex<TraitPrototype>(traitId, out var trait) &&
+                    !IsTraitUnusableForCurrentSpecies(trait))
+                {
+                    newTraitPrefs.Add(traitId);
+                }
+            }
+
+            // Only update if we actually removed any traits
+            if (newTraitPrefs.Count != Profile.TraitPreferences.Count)
+            {
+                // Use the WithoutTraitPreference method for each trait to remove
+                var updatedProfile = Profile;
+                foreach (var traitId in Profile.TraitPreferences)
+                {
+                    if (_prototypeManager.TryIndex<TraitPrototype>(traitId, out var trait) &&
+                        IsTraitUnusableForCurrentSpecies(trait))
+                    {
+                        updatedProfile = updatedProfile.WithoutTraitPreference(traitId, _prototypeManager);
+                    }
+                }
+
+                Profile = updatedProfile;
+                SetDirty();
+                RefreshTraits();
+                UpdateRemoveUnusableTraitsButton();
+            }
+        }
+
+        /// <summary>
+        /// Sets the character's species
+        /// </summary>
+        private void SetSpecies(string newSpecies)
+        {
+            Profile = Profile?.WithSpecies(newSpecies);
+            OnSkinColorOnValueChanged(); // Species may have special color prefs, make sure to update it.
+            Markings.SetSpecies(newSpecies); // Repopulate the markings tab as well.
+            // In case there's job restrictions for the species
+            RefreshJobs();
+            // In case there's species restrictions for loadouts
+            RefreshLoadouts();
+            UpdateSexControls(); // update sex for new species
+            UpdateSpeciesGuidebookIcon();
+            ReloadPreview();
+            SetDirty();
+            UpdateRemoveUnusableTraitsButton();
+            RefreshTraits();
         }
 
         /// <summary>
@@ -839,16 +1104,23 @@ namespace Content.Client.Lobby.UI
 
             var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
             var species = Profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies;
-            var page = DefaultSpeciesGuidebook;
-            if (_prototypeManager.HasIndex<GuideEntryPrototype>(species))
-                page = species;
 
-            if (_prototypeManager.TryIndex<GuideEntryPrototype>(DefaultSpeciesGuidebook, out var guideRoot))
+            // Create a string variable for the species ID
+            var speciesId = species;
+
+            // Create a proper ProtoId<GuideEntryPrototype>
+            ProtoId<GuideEntryPrototype> page = new($"Species{speciesId}");
+
+            // Check if a guide entry exists for this species directly
+            if (_prototypeManager.HasIndex<GuideEntryPrototype>(page))
             {
-                var dict = new Dictionary<ProtoId<GuideEntryPrototype>, GuideEntry>();
-                dict.Add(DefaultSpeciesGuidebook, guideRoot);
-                //TODO: Don't close the guidebook if its already open, just go to the correct page
-                guidebookController.OpenGuidebook(dict, includeChildren: true, selected: page);
+                if (_prototypeManager.TryIndex<GuideEntryPrototype>(_speciesGuideEntry, out var guideRoot))
+                {
+                    var dict = new Dictionary<ProtoId<GuideEntryPrototype>, GuideEntry>();
+                    dict.Add(_speciesGuideEntry, guideRoot);
+                    //TODO: Don't close the guidebook if its already open, just go to the correct page
+                    guidebookController.OpenGuidebook(dict, includeChildren: true, selected: page);
+                }
             }
         }
 
@@ -989,7 +1261,6 @@ namespace Content.Client.Lobby.UI
                         ReloadPreview();
 
                         UpdateJobPriorities();
-                        SetDirty();
                     };
 
                     var loadoutWindowBtn = new Button()
@@ -1270,20 +1541,6 @@ namespace Content.Client.Lobby.UI
         private void SetGender(Gender newGender)
         {
             Profile = Profile?.WithGender(newGender);
-            ReloadPreview();
-        }
-
-        private void SetSpecies(string newSpecies)
-        {
-            Profile = Profile?.WithSpecies(newSpecies);
-            OnSkinColorOnValueChanged(); // Species may have special color prefs, make sure to update it.
-            Markings.SetSpecies(newSpecies); // Repopulate the markings tab as well.
-            // In case there's job restrictions for the species
-            RefreshJobs();
-            // In case there's species restrictions for loadouts
-            RefreshLoadouts();
-            UpdateSexControls(); // update sex for new species
-            UpdateSpeciesGuidebookIcon();
             ReloadPreview();
         }
 
@@ -1754,6 +2011,21 @@ namespace Content.Client.Lobby.UI
             _exporting = false;
             ImportButton.Disabled = false;
             ExportButton.Disabled = false;
+        }
+
+        /// <summary>
+        /// Sets all trait categories to be expanded or collapsed
+        /// </summary>
+        /// <param name="expanded">Whether to expand (true) or collapse (false) all categories</param>
+        private void SetAllCategoriesExpanded(bool expanded)
+        {
+            foreach (var child in TraitsList.Children)
+            {
+                if (child is TraitCategorySelector selector)
+                {
+                    selector.IsExpanded = expanded;
+                }
+            }
         }
     }
 }

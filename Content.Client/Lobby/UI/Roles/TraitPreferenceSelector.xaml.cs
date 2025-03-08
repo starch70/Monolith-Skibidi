@@ -38,6 +38,7 @@ public sealed partial class TraitPreferenceSelector : Control
         _costLabel = CostLabel;
 
         _checkbox.Text = name;
+        _checkbox.Label.FontColorOverride = Color.White;
         Cost = cost;
 
         if (description != null)
@@ -52,13 +53,17 @@ public sealed partial class TraitPreferenceSelector : Control
         if (_cost == 0)
         {
             _costLabel.Text = "0";
-            _costLabel.Modulate = Color.FromHex("#C8C8C8");
+            _costLabel.Modulate = Color.Gray;
+        }
+        else if (_cost < 0)
+        {
+            _costLabel.Text = Math.Abs(_cost).ToString();
+            _costLabel.Modulate = Color.FromHex("#40FF40"); // Green for negative values
         }
         else
         {
-            var sign = _cost >= 0 ? "+" : "";
-            _costLabel.Text = $"{sign}{_cost}";
-            _costLabel.Modulate = _cost >= 0 ? Color.FromHex("#FF4040") : Color.FromHex("#40FF40");
+            _costLabel.Text = Math.Abs(_cost).ToString();
+            _costLabel.Modulate = Color.FromHex("#FF4040"); // Red for positive values
         }
     }
 

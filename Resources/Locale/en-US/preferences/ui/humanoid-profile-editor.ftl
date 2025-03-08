@@ -55,11 +55,22 @@ humanoid-profile-editor-flavortext-tab = Description
 
 # Traits
 humanoid-profile-editor-traits-tab = Traits
-humanoid-profile-editor-no-traits = No traits available
+humanoid-profile-editor-no-traits = No traits available.
 
-humanoid-profile-editor-trait-count-hint = Points available: [{$current}/{$max}]
+humanoid-profile-editor-show-unusable-traits = Show Unusable Traits
+humanoid-profile-editor-hide-unusable-traits = Hide Unusable Traits
+humanoid-profile-editor-remove-unusable-traits = Remove Unusable Traits
+
+humanoid-profile-editor-collapse-all-traits = Collapse All
+humanoid-profile-editor-expand-all-traits = Expand All
+
+humanoid-profile-editor-trait-count-hint = Points: {$current}/{$max}
+humanoid-profile-editor-trait-points-exceeded = Not enough points available.
+humanoid-profile-editor-traits-default-category = Uncategorized
 
 trait-category-disabilities = Disabilities
 trait-category-speech = Accents
 trait-category-quirks = Quirks
 trait-category-religion = Religions
+
+trait-species-restricted = Your species can't take this trait.

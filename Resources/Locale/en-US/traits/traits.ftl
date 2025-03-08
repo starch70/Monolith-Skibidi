@@ -12,7 +12,7 @@ trait-pacifist-desc = You cannot attack or hurt any living beings.
 
 permanent-blindness-trait-examined = [color=lightblue]{CAPITALIZE(POSS-ADJ($target))} eyes are glassy and unfocused. It doesn't seem like {SUBJECT($target)} can see you well, if at all.[/color]
 
-trait-lightweight-name = Lightweight drunk
+trait-lightweight-name = Lightweight Drunk
 trait-lightweight-desc = Alcohol has a stronger effect on you.
 
 trait-muted-name = Muted
@@ -70,6 +70,4 @@ trait-spanish-name = Spanish accent
 trait-spanish-desc = Hola señor, donde esta la biblioteca.
 
 trait-dementia-name = Dementia
-trait-dementia-desc = I-... uh, what was this one about again? Oh thats right! You forget a lot sometimes
-
-trait-species-restricted = Your species cannot take this trait.
+trait-dementia-desc = I-... uh, what was this one about again? Oh thats right! You forget a lot sometimes.

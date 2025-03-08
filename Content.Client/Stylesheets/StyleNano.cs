@@ -1747,16 +1747,18 @@ namespace Content.Client.Stylesheets
                 Element<PanelContainer>().Class(StyleClassTraitBackground)
                     .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat
                     {
-                        BackgroundColor = Color.FromHex("#25252A"),
-                        BorderColor = Color.FromHex("#404040"),
+                        BackgroundColor = Color.FromHex("#232323"),
+                        BorderColor = Color.FromHex("#2D2D2D"),
                         BorderThickness = new Thickness(1),
-                        ContentMarginLeftOverride = 4,
-                        ContentMarginRightOverride = 4
+                        ContentMarginTopOverride = 0,
+                        ContentMarginBottomOverride = 0,
+                        ContentMarginLeftOverride = 0,
+                        ContentMarginRightOverride = 0
                     }),
 
                 Element<Label>().Class(StyleClassTraitCost)
                     .Prop(Label.StylePropertyFont, notoSansBold12)
-                    .Prop(Label.StylePropertyFontColor, new Color(200, 200, 200)),
+                    .Prop(Label.StylePropertyFontColor, Color.White),
             }).ToList());
         }
     }
